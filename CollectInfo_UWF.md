@@ -1,29 +1,36 @@
 ---
-title: FAQ (Unified Write Filter)
-date: 2020-01-12 00:00:00
+title: トラブル時の情報採取手順について
+date: 2020-01-26 00:00:00
 categories:
 - Unified Write Filter
 tags:
-- FAQ
+- 情報採取手順
 ---
 
-よくあるご質問とその回答をお纏めいたします。
+トラブル発生時の情報採取手順を記載します。
 <!-- more -->
 <br>
 
 ***
-## 参考となる公開情報について
+### 実施対象
+- 事象発生マシン (OS: Windows 10 IoT Core または Windows 10 IoT Enterprise)  
+<br>
+### 事前準備
+- [こちら](https://jpiotblog.github.io/files/CollectInfo_UWF.txt "CollectInfo_UWF.txt") から CollectInfo_UWF.txt ファイルをダウンロードし、拡張子を .txt から .bat に変更、実施対象の任意の場所に格納します。  
+<br>
+実施対象に以下が存在する状態  
+・ [任意の場所]\CollectInfo_UWF.bat ファイル
 
+### 影響
+- ログを採取することで負荷が上がる可能性は考えられますが、基本的に OS リソースや処理への影響はありません。
 
-***
-## “UWF Servicing Mode” で WSUS の設定が参照されない
-UWF の不具合として、2019 年 9 月 (Windows 10 1903 のみ 2019 年 10 月) の更新プログラムで修正しております。  
-***
-## Windows Defender のレジストリを除外すると OS 起動時にハングアップする
-レジストリ キー `HKLM\System\CurrentControlSet\Services\WdFilter` や `HKLM\SYSTEM\ControlSet001\Control\DeviceClasses\{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}` を除外設定にしていると、OS 起動時にハングアップして起動できない場合があります。レースコンディションによるものであり、スペックの低い端末で発生する傾向にあります。OS 側での修正は困難であるため、Wdfilter の除外解除等をご検討ください。  
-***
-## “uwfmgr.exe filter enable” コマンドを実行すると保護対象ボリュームに配置された Pagefile.sys が削除される
-初回の `uwfmgr.exe filter enable` コマンドの実行時に Pagefile に関するレジストリ値を操作する処理が実施される為です。回避策としては、`uwfmgr.exe filter enable` コマンドを実行した後、再起動の直前にもう一度 Pagefile.sys の設定を保護対象ボリュームに対して実施する必要があります。  
+### 情報採取手順
+1. 事象発生マシンに管理者アカウントでログオンします。
+2. CollectInfo_UWF.bat ファイルを右クリックし、[管理者として実行] を選択します。
+3. "実行したい番号を入力ください" メッセージに 1 を入力、リターン キーを押下し、表示に従いメニューに戻ります。
+4. "実行したい番号を入力ください" メッセージに q を入力、リターン キーを押下してツールを終了します。
+5. デスクトップ上 <YYYYMMDD 形式の年月日>_<ホスト名>_info フォルダーを圧縮し、後述のアップロードサイトよりご提供ください。
+
 ***
 <br>
 ※ 現在更新中です。
