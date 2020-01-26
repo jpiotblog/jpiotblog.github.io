@@ -13,17 +13,16 @@ tags:
 
 ***
 ### 実施対象
-事象発生マシン (OS: Windows 10 IoT Core または Windows 10 IoT Enterprise)  
+    事象発生マシン (OS: Windows 10 IoT Core または Windows 10 IoT Enterprise)  
 
 ### 事前準備
-[こちら](https://jpiotblog.github.io/files/CollectInfo_UWF.txt "CollectInfo_UWF.txt") から CollectInfo_UWF.txt ファイルをダウンロードし、拡張子を .txt から .bat に変更、実施対象の任意の場所に格納します。  
-<br>
-実施対象に以下が存在する状態  
-・ [任意の場所]\CollectInfo_UWF.bat ファイル
+    [こちら](https://jpiotblog.github.io/files/CollectInfo_UWF.txt "CollectInfo_UWF.txt") から CollectInfo_UWF.txt ファイルをダウンロードし、拡張子を .txt から .bat に変更、実施対象の任意の場所に格納します。  
+
+    <実施対象に以下が存在する状態>  
+    ・ [任意の場所]\CollectInfo_UWF.bat ファイル
 
 ### 影響
-ログを採取することで負荷が上がる可能性は考えられますが、基本的に OS リソースや処理への影響はありません。  
-<br>
+    ログを採取することで負荷が上がる可能性は考えられますが、基本的に OS リソースや処理への影響はありません。  
 
 ### 情報採取手順
 
