@@ -1,0 +1,222 @@
+@echo off
+
+REM Localization
+
+setlocal enabledelayedexpansion
+
+REM Administrator authority check
+
+openfiles > NUL 2>&1 
+if NOT %ERRORLEVEL% EQU 0 goto NotAdmin
+
+REM OS version check
+
+set runos=NotSupported
+
+ver | find "Version 6.0." > NUL
+if not errorlevel 1 set runos=Win_Vistaor2008
+
+ver | find "Version 6.1." > NUL 
+if not errorlevel 1 set runos=Win_7or2008R2
+
+ver | find "Version 6.2." > NUL
+if not errorlevel 1 set runos=Win_8or2012
+
+ver | find "Version 6.3." > NUL
+if not errorlevel 1 set runos=Win_81or2012R2
+
+ver | find "Version 10." > NUL
+if not errorlevel 1 set runos=Win_10or2016
+
+if %runos%==NotSupported goto NotSupport
+
+if %runos%==Win_Vistaor2008 goto NotSupport
+
+if %runos%==Win_7or2008R2 goto NotSupport
+
+if %runos%==Win_8or2012 goto NotSupport
+
+if %runos%==Win_81or2012R2 goto NotSupport
+
+REM Temporary folder path
+
+set tooltemp=c:\temp
+
+:startbat
+cls
+
+echo *******************************************************************************
+echo 情報採取ツール メニュー
+echo - 番号: 1 (UWF 関連情報採取)
+echo *******************************************************************************
+
+set INP=0
+set /p INP="実行したい番号を入力ください。終了する場合は q を入力します > "
+
+if "%INP%"=="q" exit /b
+
+echo.
+echo %INP% を実行します。
+echo 続行するには何かキーを押してください。
+pause > NUL
+cls
+
+if "%INP%"=="1" goto oscollect
+
+goto startbat
+
+REM ######################################################################
+REM OS 共通情報採取
+REM ######################################################################
+
+:oscollect
+
+echo 情報採取を開始しています。
+echo エラーが表示されても処理は進みますので、そのままお待ちください。
+echo.
+
+REM Creating output folder
+
+for /F "tokens=1,2,3 delims=/" %%p in ("%DATE%") do @set dateD=%%p%%q%%r
+set INFODIR=%userprofile%\desktop\%dateD%_%COMPUTERNAME%_info
+if not EXIST "%INFODIR%" mkdir "%INFODIR%"
+
+REM Setting time information
+
+set time2=%time: =0%
+set timeD=%time2:~0,2%%time2:~3,2%%time2:~6,2%
+
+REM Creating OS folder
+
+mkdir "%INFODIR%\OS_%timeD%"
+cd /d "%INFODIR%\OS_%timeD%"
+
+REM ----- Eventlog
+
+wevtutil epl System wevtutil-System.evtx
+wevtutil qe System /f:text > wevtutil-System.txt
+wevtutil epl Setup wevtutil-Setup.evtx
+wevtutil epl Application wevtutil-Application.evtx
+wevtutil qe Application /f:text > wevtutil-Application.txt
+wevtutil epl Microsoft-Windows-UnifiedWriteFilter/Admin wevtutil-UWFadmin.evtx
+wevtutil qe Microsoft-Windows-UnifiedWriteFilter/Admin /f:text > wevtutil-UWFadmin.txt
+wevtutil epl Microsoft-Windows-UnifiedWriteFilter/Operational wevtutil-UWFOperational.evtx
+wevtutil qe Microsoft-Windows-UnifiedWriteFilter/Operational /f:text > wevtutil-UWFOperational.txt
+wevtutil epl Microsoft-Windows-WindowsUpdateClient/Operational wevtutil-WUAdmin.evtx
+wevtutil epl Security wevtutil-Security.evtx
+wevtutil epl Microsoft-Windows-CAPI2/Operational wevtutil-CAPI2.evtx
+wevtutil epl Microsoft-Windows-GroupPolicy/Operational wevtutil-GroupPolicy-Operational.evtx
+wevtutil epl Microsoft-Windows-NCSI/Operational wevtutil-NCSI.evtx
+wevtutil epl Microsoft-Windows-NlaSvc/Operational wevtutil-NlaSvc.evtx
+wevtutil epl Microsoft-Windows-NetworkProfile/Operational wevtutil-NetworkProfile.evtx
+wevtutil epl Microsoft-Windows-Dhcp-Client/Admin wevtutil-DHCPClient-Admin.evtx
+wevtutil epl Microsoft-Windows-Dhcp-Client/Operational wevtutil-DHCPClient-Operational.evtx
+wevtutil epl Microsoft-Windows-TaskScheduler/Operational wevtutil-TaskScheduler-Operational.evtx
+
+REM ----- Registry
+
+reg save HKLM\SYSTEM\CurrentControlSet\Control reg-Control.hiv
+reg save HKLM\SYSTEM\CurrentControlSet\Services reg-Services.hiv
+reg query HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NlaSvc /s > reg-NlaSvc.txt
+reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList" /s > reg-NetworkList.txt
+reg query "HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings" /s > reg-Policys-InternetSettings.txt
+reg query "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /s > reg-InternetSettings.txt
+
+REM ----- Command
+
+msinfo32.exe /nfo msinfo32.nfo
+gpresult /H gpresult.htm
+gpresult /z > gpresult.txt
+ipconfig /all > ipconfig-all.txt
+ipconfig /displaydns > ipconfig-displaydns.txt
+netstat -r > netstat-r.txt
+netstat -s > netstat-s.txt
+netstat -anob > netstat-anob.txt
+netsh interface ipv4 show offload > netsh-int-ipv4-offload.txt
+netsh winhttp show proxy > netsh-winhttp-proxy.txt
+fltmc instances > fltmc_instances.txt
+fltmc filters > fltmc_filters.txt
+set > set.txt
+schtasks /Query /V > schtasks.txt
+tasklist -svc > tasklist-svc.txt
+tasklist -v > tasklist-v.txt
+driverquery /fo csv /v > driverquery.csv
+wmic nic get * /format:htable > wmi_nic.html
+wmic nicconfig get * /format:htable > wmi_nicconfig.html
+wmic qfe get * /format:htable > wmi_qfe.html
+wmic partition get * /format:htable > wmi_partition.html
+wmic logicaldisk get * /format:htable > wmi_logicaldisk.html
+wmic volume get * /format:htable > wmi_volume.html
+wmic diskdrive get * /format:htable > wmi_diskdrive.html
+copy %windir%\WindowsUpdate.log .\ >nul
+copy %windir%\SoftwareDistribution\ReportingEvents.log .\ >nul
+copy %windir%\inf\Setupapi.* .\ >nul
+copy %windir%\System32\LogFiles\SCM\*.EVM* .\ >nul
+whoami /all > whoami-all-%USERNAME%.txt
+dism /Online /Get-intl > Get_intl.log
+dism /Online /Get-Packages /Format:Table > Get-Packages.log
+dism /Online /Get-Features /Format:Table > Get-Features.log
+uwfmgr get-config > uwfmgr_getconfig.txt
+uwfmgr get-config > uwfmgr_getconfig.txt
+uwfmgr get-config > uwfmgr_getconfig.txt
+uwfmgr file get-exclusions > uwfmgr_file-getexclusions.txt
+uwfmgr overlay get-availablespace > uwfmgr_overlay-getavailablespace.txt
+uwfmgr overlay get-consumption > uwfmgr_overlay-getconsumption.txt
+
+REM ----- Advfirewall related information
+
+netsh advfirewall show allprofiles > netsh-advfirewall-allprofiles.txt
+netsh advfirewall show currentprofile > netsh-advfirewall-currentprofile.txt
+netsh advfirewall firewall show rule name=all verbose > netsh-advfirewall-rules.txt
+netsh advfirewall monitor show firewall > netsh-advfirewall-monitor.txt
+netsh advfirewall export netsh-advfirewall-export.wfw >nul
+
+REM ----- WFP related information
+
+netsh wfp show netevents >nul
+netsh wfp show state >nul
+netsh wfp show filters >nul
+netsh wfp show boottimepolicy >nul
+
+REM ----- WU related information
+
+mkdir "%INFODIR%\OS_%timeD%\WU"
+cd /d "%INFODIR%\OS_%timeD%\WU"
+copy %windir%\logs\WindowsUpdate .\ >nul
+reg export HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate registry_wu.txt
+reg export HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate registry_wupolicy.txt
+
+echo.
+echo 採取が完了しました。
+echo 何かキーを入力するとメニューに戻ります。
+pause > NUL
+
+goto startbat
+
+REM ######################################################################
+REM エラー処理
+REM ######################################################################
+
+:NotAdmin
+
+echo 管理者権限で実行ください。
+echo 何かキーを押すと終了します。
+pause > NUL
+exit /b
+
+:NotSupport
+
+echo 実行をサポートしていない OS バージョンです。
+echo 何かキーを押すと終了します。
+pause > NUL
+exit /b
+
+:NoFile1
+
+echo %tooltemp%\ProcessMonitor\Procmon.exe ファイルが在りません。
+echo 何かキーを入力するとメニューに戻ります。
+pause > NUL
+
+goto startbat
+
+REM EOF
