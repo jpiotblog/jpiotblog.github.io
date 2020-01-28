@@ -117,6 +117,7 @@ REM ----- Registry
 
 reg save HKLM\SYSTEM\CurrentControlSet\Control reg-Control.hiv
 reg save HKLM\SYSTEM\CurrentControlSet\Services reg-Services.hiv
+reg query "HKLM\SOFTWARE\Microsoft\Windows Embedded" /s > reg-WindowsEmbedded.txt
 reg query HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NlaSvc /s > reg-NlaSvc.txt
 reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList" /s > reg-NetworkList.txt
 reg query "HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings" /s > reg-Policys-InternetSettings.txt

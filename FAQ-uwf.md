@@ -27,6 +27,9 @@ tags:
 > トラブルシューティングに関する情報  
 > UWF に関する情報採取手順は、[こちら](https://jpiotblog.github.io/files/CollectInfo_UWF.md "") を参照ください。
 ***
+## UWF 適用環境で Windows Update 時に CPU が高くなる
+WmiPrvSE.exe プロセスが uwfwmi.dll にて UWF のオーバーレイ ファイルを取得する処理にて CPU を消費する傾向があります。こちらは仕様に基づく動作となります。
+***
 ## “UWF Servicing Mode” で WSUS の設定が参照されない
 UWF の不具合として、2019 年 9 月 (Windows 10 1903 のみ 2019 年 10 月) の更新プログラムで修正しております。  
 ***
