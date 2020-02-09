@@ -7,6 +7,7 @@ tags:
 - 過去ブログ
 ---
 過去のブログ情報を紹介いたします。
+定期的な更新は行われていないため、除外設定等の情報は現在の OS では適用されない場合がございますので、予めご留意いただけますようお願い申し上げます。
 <!-- more -->
 ## UWF
 - [統合書き込みフィルター (Unified Write Filter (UWF)) について](https://docs.microsoft.com/ja-jp/archive/blogs/askcorejp/unified-write-filter-info)
