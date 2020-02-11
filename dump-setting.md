@@ -29,7 +29,7 @@ UWF を有効化した環境で、メモリ ダンプを取得する方法につ
 ## 事前準備
 - システム ドライブ以外に、メモリ ダンプを保存するボリュームを追加し、いずれかのドライブとしてマウントします。  
 ※ この手順では D: ドライブとします。  
-<br>
+
 - 事前に UWF フィルターとボリュームの保護を実行します。この過程で PageFile の設定が一旦初期化されます。  
 実行例:  
 uwfmgr.exe filter enable  
@@ -39,10 +39,12 @@ shutdown -r -t 0
 ***
 ## 手順
 1. UWF フィルターを無効化する。  
+<br>
 実行例:  
 uwfmgr.exe filter disable  
 <br>  
 2. PageFile の大きさを 物理メモリ + 300 Mbyte 以上の大きさに設定する。  
+<br>
 実行例:  
 a) [エクスプローラ] - [コンピュータ] を右クリックし [プロパティ(R)] をクリックします。  
 b) [システムの詳細設定] をクリックします。  
@@ -64,6 +66,7 @@ j) "パフォーマンス オプション" のウィンドウも [OK] ボタン�
 データ: <ページ ファイル保存先> <初期サイズ (MB)> <最大サイズ (MB)> (設定例: d:\pagefile.sys 4396 4396)  
 <br>
 3. 完全メモリ ダンプ (Full Dump) が生成される設定にします。  
+<br>
 a) [エクスプローラ] - [コンピュータ] を右クリックし、[プロパティ] をクリックします。  
 b) 左ペインにある [システムの詳細設定] をクリックします。  
 c) "システムのプロパティ" の [詳細設定] タブの [起動と回復] 枠内にある [設定] ボタンをクリックします。  
@@ -85,5 +88,19 @@ GUI から [完全メモリ ダンプ] を選択する事と併せて、以下�
 名前: DumpFile  
 種類: REG_EXPAND_SZ  
 データ(既定値): D:\Dumps\MEMORY.DMP  
+<br>
+5. lwaysKeepMemoryDump を設定します。(オプション)  
+Client OS におけるメモリ ダンプでは WorkGroup 環境の場合、ダンプ ファイル格納ボリュームの空き容量が25 GB 未満の場合、ダンプ ファイルが削除される動作となります (Domain 環境の場合、25 GB の制限には合致いたしません)。  
+そのため、対象の端末が Workgroup 環境の場合には、以下のレジストリ値を設定いただき、ダンプ ファイルが上記制限に合致しないよう設定いただく事をご検討いただければと存じます。  
+<br>
+キー: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl  
+名前: AlwaysKeepMemoryDump  
+種類: REG_DWOD  
+データ : 1  
+<br>
+公開情報:  
+[Kernel dump storage and clean up behavior in Windows 7](https://blogs.msdn.microsoft.com/wer/2009/02/09/kernel-dump-storage-and-clean-up-behavior-in-windows-7/)
+
+
 
 ***
