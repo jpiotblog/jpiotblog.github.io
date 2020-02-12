@@ -39,67 +39,68 @@ shutdown -r -t 0
 ***
 ## 手順
 1. UWF フィルターを無効化する。  
-<br>
-実行例:  
-uwfmgr.exe filter disable  
-<br>  
+
+   実行例:  
+   uwfmgr.exe filter disable  
+  
 2. PageFile の大きさを 物理メモリ + 300 Mbyte 以上の大きさに設定する。  
-<br>
-実行例:  
-a) [エクスプローラ] - [コンピュータ] を右クリックし [プロパティ(R)] をクリックします。  
-b) [システムの詳細設定] をクリックします。  
-c) [詳細設定] タブの [パフォーマンス] にある [設定(S)] をクリックします。  
-d) [詳細設定] タブの [仮想メモリ] の項目にある [変更(C)] ボタンをクリックします。  
-e) この画面にて、[すべてのドライブのページング ファイルのサイズを自動的に管理する(A)] オプションを外します。  
-f) 手順 1) で作成したシステムドライブ以外のドライブ (ここでは D:\) をクリックします。  
-g) [カスタムサイズ] にチェックを付け、[初期サイズ]、[最大サイズ] の両方に物理メモリ + 300 Mbyte 以上の値を入力します。 (例えば 4096MB メモリの場合、4396MB)  
-h) その後 [設定] ボタンをクリックし設定を反映させ [OK] ボタンをクリックします。  
-i) "変更結果はコンピューターを再起動しなければ有効になりません。" というポップアップが表示されますので、[OK] ボタンをクリックします。  
-j) "パフォーマンス オプション" のウィンドウも [OK] ボタンにて閉じます。  
-<br>
-※ 補足  
-この設定値は、次のレジストリに反映されます。なお、直接レジストリ値を編集することでも、ページング ファイル サイズを設定することができます。  
-<br>
-キー: HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SessionManager\MemoryManagement  
-名前: PagingFiles  
-種類: REG_MULTI_SZ  
-データ: <ページ ファイル保存先> <初期サイズ (MB)> <最大サイズ (MB)> (設定例: d:\pagefile.sys 4396 4396)  
-<br>
+
+   実行例:  
+   a) [エクスプローラ] - [コンピュータ] を右クリックし [プロパティ(R)] をクリックします。  
+   b) [システムの詳細設定] をクリックします。  
+   c) [詳細設定] タブの [パフォーマンス] にある [設定(S)] をクリックします。  
+   d) [詳細設定] タブの [仮想メモリ] の項目にある [変更(C)] ボタンをクリックします。  
+   e) この画面にて、[すべてのドライブのページング ファイルのサイズを自動的に管理する(A)] オプションを外します。  
+   f) 手順 1) で作成したシステムドライブ以外のドライブ (ここでは D:\) をクリックします。  
+   g) [カスタムサイズ] にチェックを付け、[初期サイズ]、[最大サイズ] の両方に物理メモリ + 300 Mbyte 以上の値を入力します。 (例えば 4096MB メモリの場合、4396MB)  
+   h) その後 [設定] ボタンをクリックし設定を反映させ [OK] ボタンをクリックします。  
+   i) "変更結果はコンピューターを再起動しなければ有効になりません。" というポップアップが表示されますので、[OK] ボタンをクリックします。  
+   j) "パフォーマンス オプション" のウィンドウも [OK] ボタンにて閉じます。  
+
+   ※ 補足  
+   この設定値は、次のレジストリに反映されます。なお、直接レジストリ値を編集することでも、ページング ファイル サイズを設定することができます。  
+
+   キー: HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SessionManager\MemoryManagement  
+   名前: PagingFiles  
+   種類: REG_MULTI_SZ  
+   データ: <ページ ファイル保存先> <初期サイズ (MB)> <最大サイズ (MB)> (設定例: d:\pagefile.sys 4396 4396)
+
 3. 完全メモリ ダンプ (Full Dump) が生成される設定にします。  
-<br>
-a) [エクスプローラ] - [コンピュータ] を右クリックし、[プロパティ] をクリックします。  
-b) 左ペインにある [システムの詳細設定] をクリックします。  
-c) "システムのプロパティ" の [詳細設定] タブの [起動と回復] 枠内にある [設定] ボタンをクリックします。  
-d) "起動と回復" の [デバッグ情報の書き込み] 枠内にあるプルダウン メニューから [完全メモリ ダンプ] を選択し、[OK] ボタンを 2 回クリックします。  
-<br>
+
+   a) [エクスプローラ] - [コンピュータ] を右クリックし、[プロパティ] をクリックします。  
+   b) 左ペインにある [システムの詳細設定] をクリックします。  
+   c) "システムのプロパティ" の [詳細設定] タブの [起動と回復] 枠内にある [設定] ボタンをクリックします。  
+   d) "起動と回復" の [デバッグ情報の書き込み] 枠内にあるプルダウン メニューから [完全メモリ ダンプ] を選択し、[OK] ボタンを 2 回クリックします。  
+
 4. [ダンプ ファイル] のパスを変更します。  
-<br>
-※ 注意  
-GUI から [完全メモリ ダンプ] を選択する事と併せて、以下のレジストリ エディタで、次のレジストリの値が設定されている事をご確認ください。  
-<br>
-キー: HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\CrashControl  
-名前: CrashDumpEnabled  
-種類: REG_DWORD  
-データ: 1  
-<br>
-メモリ ダンプの出力先は、次のレジストリ値で確認できます。  
-<br>
-キー: HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\CrashControl  
-名前: DumpFile  
-種類: REG_EXPAND_SZ  
-データ(既定値): D:\Dumps\MEMORY.DMP  
-<br>
+
+   ※ 注意  
+   GUI から [完全メモリ ダンプ] を選択する事と併せて、以下のレジストリ エディタで、次のレジストリの値が設定されている事をご確認ください。  
+
+   キー: HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\CrashControl  
+   名前: CrashDumpEnabled  
+   種類: REG_DWORD  
+   データ: 1  
+
+   メモリ ダンプの出力先は、次のレジストリ値で確認できます。  
+
+   キー: HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\CrashControl  
+   名前: DumpFile  
+   種類: REG_EXPAND_SZ  
+   データ(既定値): D:\Dumps\MEMORY.DMP  
+
 5. lwaysKeepMemoryDump を設定します。(オプション)  
-Client OS におけるメモリ ダンプでは WorkGroup 環境の場合、ダンプ ファイル格納ボリュームの空き容量が25 GB 未満の場合、ダンプ ファイルが削除される動作となります (Domain 環境の場合、25 GB の制限には合致いたしません)。  
-そのため、対象の端末が Workgroup 環境の場合には、以下のレジストリ値を設定いただき、ダンプ ファイルが上記制限に合致しないよう設定いただく事をご検討いただければと存じます。  
-<br>
-キー: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl  
-名前: AlwaysKeepMemoryDump  
-種類: REG_DWOD  
-データ : 1  
-<br>
-公開情報:  
-[Kernel dump storage and clean up behavior in Windows 7](https://blogs.msdn.microsoft.com/wer/2009/02/09/kernel-dump-storage-and-clean-up-behavior-in-windows-7/)
+
+   Client OS におけるメモリ ダンプでは WorkGroup 環境の場合、ダンプ ファイル格納ボリュームの空き容量が25 GB 未満の場合、ダンプ ファイルが削除される動作となります (Domain 環境の場合、25 GB の制限には合致いたしません)。  
+   そのため、対象の端末が Workgroup 環境の場合には、以下のレジストリ値を設定いただき、ダンプ ファイルが上記制限に合致しないよう設定いただく事をご検討いただければと存じます。  
+
+   キー: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl  
+   名前: AlwaysKeepMemoryDump  
+   種類: REG_DWOD  
+   データ : 1  
+
+   公開情報:  
+   [Kernel dump storage and clean up behavior in Windows 7](https://blogs.msdn.microsoft.com/wer/2009/02/09/kernel-dump-storage-and-clean-up-behavior-in-windows-7/)
 
 
 
