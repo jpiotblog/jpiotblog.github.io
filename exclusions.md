@@ -14,9 +14,9 @@ UWF の除外設定を実施するにあたり、留意いただきたい内容�
 システムの起動の初期段階でアクセスするフォルダ (C:\Windows 配下など) は、他のデータと一貫性を持っています。一部のフォルダーを除外し、関連するその他の情報と一貫性が崩れた場合、システムがハンドルできない問題が発生し「SYSTEM THREAD EXCEPTION NOT HANDLED」エラーが発生する場合があります。これは、アクセスできる情報としてアクセスしようとしたら失敗 (Access violation の発生) することでシステムの起動が進められなくなるためです。  
 設定を推奨しない除外パスは、公開情報 [書き込みフィルターの除外](https://docs.microsoft.com/ja-jp/windows-hardware/customize/enterprise/uwfexclusions) を参照ください。なお、現在公開情報への追加リクエスト中の情報として、以下も併せてご確認ください。  
 
-- C:\Windows\WinSWX フォルダーを除外すると OS 起動時に BSOD が発生する  
+- C:\Windows\WinSXS フォルダーを除外すると OS 起動時に BSOD が発生する  
 
-   Winodws 10 Enterprise 2019 LTSC では、C:\Windows\WinSWX フォルダーを除外するとシステム起動時に 「SYSTEM THREAD EXCEPTION NOT HANDLED」 で BSOD が発生するという報告がございます。C:\Windows\WinSXS フォルダー配下にはシステム起動初期にアクセスする情報が含まれておりますため、除外をお勧めいたしません。  
+   Winodws 10 Enterprise 2019 LTSC では、C:\Windows\WinSXS フォルダーを除外するとシステム起動時に 「SYSTEM THREAD EXCEPTION NOT HANDLED」 で BSOD が発生するという報告がございます。C:\Windows\WinSXS フォルダー配下にはシステム起動初期にアクセスする情報が含まれておりますため、除外をお勧めいたしません。  
 
 - Windows Defender のレジストリを除外すると OS 起動時にハングアップする  
 
