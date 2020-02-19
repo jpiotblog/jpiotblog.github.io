@@ -16,11 +16,11 @@ UWF の除外設定を実施するにあたり、留意いただきたい内容�
 
 - C:\Windows\WinSWX フォルダーを除外すると OS 起動時に BSOD が発生する  
 
-   Winodws 10 Enterprise 2019 LTSC では、C:\Windows\WinSWX フォルダーを除外するとシステム起動時に 「SYSTEM THREAD EXCEPTION NOT HANDLED」 で BSOD なるという報告がございます。  
+   Winodws 10 Enterprise 2019 LTSC では、C:\Windows\WinSWX フォルダーを除外するとシステム起動時に 「SYSTEM THREAD EXCEPTION NOT HANDLED」 で BSOD が発生するという報告がございます。C:\Windows\WinSXS フォルダー配下にはシステム起動初期にアクセスする情報が含まれておりますため、除外をお勧めいたしません。  
 
 - Windows Defender のレジストリを除外すると OS 起動時にハングアップする  
 
    レジストリ キー `HKLM\System\CurrentControlSet\Services\WdFilter` や `HKLM\SYSTEM\ControlSet001\Control\DeviceClasses\{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}` を除外設定にしていると、OS 起動時にハングアップして起動できない場合があります。レースコンディションによるものであり、スペックの低い端末で発生する傾向にあります。OS 側での修正は困難であるため、Wdfilter の除外解除等をご検討ください。  
 
-なお、UWF の除外対象にしたい製品にて、UWF との併用可否や必要な除外設定について確認が必要となる場合、各対象製品サポートへお問い合わせくださいますようお願いいたします。  
+なお、UWF を有効にした環境で OS 再起動後も情報を維持したい製品がある場合、必要な除外設定につきましては対象製品サポートへお問い合わせいただく必要がございます。除外設定の追加によって何らかの問題が発生した場合にも、除外対象パスを使用するプロセス側にて調査が必要となりますため、対象の製品サポートにて事例の有無や対処方法をお問い合わせください。
 ***
