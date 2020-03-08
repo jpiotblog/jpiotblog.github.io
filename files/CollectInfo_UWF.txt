@@ -158,11 +158,11 @@ dism /Online /Get-intl > Get_intl.log
 dism /Online /Get-Packages /Format:Table > Get-Packages.log
 dism /Online /Get-Features /Format:Table > Get-Features.log
 uwfmgr get-config > uwfmgr_getconfig.txt
-uwfmgr get-config > uwfmgr_getconfig.txt
-uwfmgr get-config > uwfmgr_getconfig.txt
 uwfmgr file get-exclusions > uwfmgr_file-getexclusions.txt
+uwfmgr registry get-exclusions > uwfmgr_registry-getexclusions.txt
 uwfmgr overlay get-availablespace > uwfmgr_overlay-getavailablespace.txt
 uwfmgr overlay get-consumption > uwfmgr_overlay-getconsumption.txt
+dir /a c:\uwfswap.sys > dir_uwfswap.txt
 
 REM ----- Advfirewall related information
 

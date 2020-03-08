@@ -36,18 +36,23 @@ UWF を有効化した環境で、メモリ ダンプを取得する方法につ
 ※ この手順では D: ドライブとします。  
 
 - 事前に UWF フィルターとボリュームの保護を実行します。この過程で PageFile の設定が一旦初期化されます。  
-実行例:  
-uwfmgr.exe filter enable  
-uwfmgr.exe volume protect c:  
-shutdown -r -t 0  
-※ この手順ではシステム ドライブを C: ドライブとします。  
+
+   実行例:  
+   ※ この手順ではシステム ドライブを C: ドライブとします。 
+   ```dos
+   uwfmgr.exe filter enable  
+   uwfmgr.exe volume protect c:  
+   shutdown -r -t 0  
+   ``` 
 
 ***
 ## Dump 出力設定手順
 - (1) UWF フィルターを無効化する。  
 
    実行例:  
+   ```dos
    uwfmgr.exe filter disable  
+   ```
   
 - (2) PageFile の大きさを 物理メモリ + 300 Mbyte 以上の大きさに設定する。  
 
@@ -66,10 +71,10 @@ shutdown -r -t 0
    ※ 補足  
    この設定値は、次のレジストリに反映されます。なお、直接レジストリ値を編集することでも、ページング ファイル サイズを設定することができます。  
 
-   キー: HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SessionManager\MemoryManagement  
-   名前: PagingFiles  
-   種類: REG_MULTI_SZ  
-   データ: <ページ ファイル保存先> <初期サイズ (MB)> <最大サイズ (MB)> (設定例: d:\pagefile.sys 4396 4396)
+   キー: `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SessionManager\MemoryManagement`  
+   名前: `PagingFiles`  
+   種類: `REG_MULTI_SZ`  
+   データ: <ページ ファイル保存先> <初期サイズ (MB)> <最大サイズ (MB)> (設定例: `d:\pagefile.sys 4396 4396`)
 
 - (3) 完全メモリ ダンプ (Full Dump) が生成されるよう設定する。  
 
@@ -83,41 +88,41 @@ shutdown -r -t 0
    ※ 注意  
    GUI から [完全メモリ ダンプ] を選択する事と併せて、以下のレジストリ エディタで、次のレジストリの値が設定されている事をご確認ください。  
 
-   キー: HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\CrashControl  
-   名前: CrashDumpEnabled  
-   種類: REG_DWORD  
-   データ: 1  
+   キー: `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\CrashControl`  
+   名前: `CrashDumpEnabled`  
+   種類: `REG_DWORD`  
+   データ: `1`  
 
    メモリ ダンプの出力先は、次のレジストリ値で確認できます。  
 
-   キー: HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\CrashControl  
-   名前: DumpFile  
-   種類: REG_EXPAND_SZ  
-   データ(既定値): D:\Dumps\MEMORY.DMP  
+   キー: `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\CrashControl`  
+   名前: `DumpFile`  
+   種類: `REG_EXPAND_SZ`  
+   データ(既定値): `D:\Dumps\MEMORY.DMP`  
 
 - (5) DedicatedDumpFile.sys を設定する。  
 
    レジストリ エディタで、次のレジストリの値を設定してください。  
 
-   キー: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl  
-   名前: DedicatedDumpFile  
-   種類: 文字列値  
-   データ: D:\dedicateddumpfile.sys  
+   キー: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl`  
+   名前: `DedicatedDumpFile`  
+   種類: `REG_SZ`  
+   データ: `D:\dedicateddumpfile.sys`  
 
-   キー: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl  
-   名前: DumpFileSize  
-   種類: REG_DWORD  
-   データ: <10 進数でメモリサイズ + 300 MB を設定ください> (設定例: 4396)  
+   キー: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl`  
+   名前: `DumpFileSize`  
+   種類: `REG_DWORD`  
+   データ: <10 進数でメモリサイズ + 300 MB を設定ください> (設定例: `4396`)  
 
 - (6: オプション) AlwaysKeepMemoryDump を設定する。  
 
    Client OS におけるメモリ ダンプでは WorkGroup 環境の場合、ダンプ ファイル格納ボリュームの空き容量が25 GB 未満の場合、ダンプ ファイルが削除される動作となります (Domain 環境の場合、25 GB の制限には合致いたしません)。  
    そのため、対象の端末が Workgroup 環境の場合には、以下のレジストリ値を設定いただき、ダンプ ファイルが上記制限に合致しないよう設定いただく事をご検討いただければと存じます。  
 
-   キー: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl  
-   名前: AlwaysKeepMemoryDump  
-   種類: REG_DWOD  
-   データ : 1  
+   キー: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl`  
+   名前: `AlwaysKeepMemoryDump`  
+   種類: `REG_DWOD`  
+   データ : `1`  
 
    公開情報:  
    [Kernel dump storage and clean up behavior in Windows 7](https://blogs.msdn.microsoft.com/wer/2009/02/09/kernel-dump-storage-and-clean-up-behavior-in-windows-7/)  
@@ -127,16 +132,16 @@ shutdown -r -t 0
    事象発生時にメモリ ダンプの生成を行えるよう、トリガーの設定を行います。レジストリ エディタで、次のレジストリの値を設定してください。  
 
    <PS/2 キーボードの場合>  
-   キー: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\i8042prt\Parameters  
-   名前: CrashOnCtrlScroll  
-   種類: REG_DWORD  
-   データ: 1  
+   キー: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\i8042prt\Parameters`  
+   名前: `CrashOnCtrlScroll`  
+   種類: `REG_DWORD`  
+   データ: `1`  
 
    <USB キーボードの場合>  
-   キー: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\kbdhid\Parameters  
-   名前: CrashOnCtrlScroll  
-   種類: REG_DWORD  
-   データ: 1  
+   キー: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\kbdhid\Parameters`  
+   名前: `CrashOnCtrlScroll`  
+   種類: `REG_DWORD`  
+   データ: `1`  
 
 - (8: オプション) NMI スイッチを使用できるように設定する。  
 
@@ -145,22 +150,24 @@ shutdown -r -t 0
 
    また、Windows 側の設定として、レジストリ エディタで、次のレジストリの値を設定ください。  
 
-   キー: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl  
-   名前: NMICrashDump  
-   種類: REG_DWORD  
-   データ: 1  
+   キー: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl`  
+   名前: `NMICrashDump`  
+   種類: `REG_DWORD`  
+   データ: `1`  
 
 - (9) UWF を有効化し、OS を再起動する。
 
    実行例:  
+   ```dos
    uwfmgr.exe filter enable  
    shutdown -r -t 0  
+   ```
 
 ***
 ## Dump の出力手順
 調査対象の事象が発生した際に、NMI もしくはキーボード操作によってメモリ ダンプを出力させます。  
 
-- 取得対象: "D:\Dumps\Memory.dmp"  
+- 取得対象: `D:\Dumps\Memory.dmp`  
 
 ***
 ## ※ 参考情報

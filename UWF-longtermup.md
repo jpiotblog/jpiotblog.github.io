@@ -6,7 +6,7 @@ categories:
 tags:
 - オーバーレイ
 ---
-長期間稼働するシステムで UWF を有効化する場合の、一般的な留意事項ををお纏めいたします。
+長期間稼働するシステムで UWF を有効化する場合の、一般的な留意事項をご紹介します。
 <!-- more -->
 <br>
 
@@ -17,9 +17,40 @@ UWF を有効化している環境において、オーバーレイ領域が不�
 
 システムを再起動せず稼働可能な期間を判断するためには、UWF を有効化して模擬運用を実施し、オーバーレイの消費傾向を把握することをお勧めいたします。運用が周期的に行われる場合、周期の最大期間 (例: 一週間、または一ヶ月など) を目途に模擬運用を継続ください。消費傾向からシステム再起動タイミングを逆算したり、どのような操作が最もオーバーレイを消費しているかを確認して、利用方法の変更やオーバーレイ領域の拡大をご検討ください。  
 
-関連する公開情報をご紹介いたします。  
+検討方法例:  
+
+1. 一週間または一ヶ月などの運用周期となる期間、運用試験を実施いただき、オーバーレイの消費傾向を把握します。
+
+   消費量 / 残容量の確認:  
+   ```dos
+   uwfmgr overlay get-consumption  
+   uwfmgr overlay get-availablespace  
+   ```
+
+2. 試験結果を基に、システム再起動間隔でオーバーレイが消費しないよう設定値を決定します。
+
+   例:  
+   オーバーレイ消費傾向: 約 200 MB / 日  
+   システム再起動間隔　: 一週間毎  
+
+   - 7 日 x 200 MB = 1400 MB / 週、ただし操作によっては消費量が増えることを想定して約 2 倍超の 3 GB = 3072 MB と設定  
+      ```dos
+      uwfmgr overlay set-size 3072  
+      ```
+
+   - 一週間通常使用しても警告を出力しないように 1.5 GB = 1536 MB と設定
+      ```dos
+      uwfmgr overlay set-warningthreshold 1536
+      ```
+   - 警告表示後 2 日間余裕があるように 2.5 GB = 2560 MB と設定
+      ```dos
+      uwfmgr overlay set-criticalthreshold 2560
+      ```
+<br>
+  
+関連する公開情報をご紹介します。  
 
 - [統合書き込みフィルター (UWF) オーバーレイの位置とサイズ](https://docs.microsoft.com/ja-jp/windows-hardware/customize/enterprise/uwfoverlay)
 - [Windows 10 の統合書き込みフィルター機能 (UWF) で、フィルターの除外設定を行ってもオーバーレイのメモリを消費してしまう　※ 過去ブログ](https://social.technet.microsoft.com/Forums/ja-JP/959a7f26-3b2a-4336-9882-696bc21efbe1/windows-10?forum=Wcsupportja)
-- [UWF 有効にしてから 6 ヶ月経過すると一部の通知アイコンが表示されない現象について　※ 過去ブログ](https://social.technet.microsoft.com/Forums/ja-JP/4276f895-6266-4d4a-92dd-507ed694aab3/uwf-26377211771239512375123901236312425-6?forum=Wcsupportja)
+- [UWF 有効にしてから 6 ヶ月経過すると一部の通知アイコンが表示されない現象について　※ 過去ブログ](https://social.technet.microsoft.com/Forums/ja-JP/4276f895-6266-4d4a-92dd-507ed694aab3/uwf-26377211771239512375123901236312425-6?forum=Wcsupportja)  
 ***
