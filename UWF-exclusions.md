@@ -20,7 +20,18 @@ UWF の除外設定を実施するにあたり、留意いただきたい内容�
 
 - Windows Defender のレジストリを除外すると OS 起動時にハングアップする  
 
-   レジストリ キー `HKLM\System\CurrentControlSet\Services\WdFilter` や `HKLM\SYSTEM\ControlSet001\Control\DeviceClasses\{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}` を除外設定にしていると、OS 起動時にハングアップして起動できない場合があります。レースコンディションによるものであり、スペックの低い端末で発生する傾向にあります。OS 側での修正は困難であるため、Wdfilter の除外解除等をご検討ください。  
+   下記レジストリ キーを除外していると、OS 起動時にハングアップして起動できない場合があります。  
+
+   - `HKLM\System\CurrentControlSet\Services\WdFilter`  
+   - `HKLM\SYSTEM\ControlSet001\Control\DeviceClasses\{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}`  
+
+   レースコンディションによるものであり、スペックの低い端末で発生する傾向にあります。OS 側での修正は困難であるため、Wdfilter の除外解除等をご検討ください。  
+
+   Windows 10 2016 LTSB の環境では下記除外が入っていた場合にも同様の問題が発生するという報告がございます。該当する場合にはこちらの除外解除もご検討ください。  
+
+   - `HKLM\SOFTWARE\Classes\TypeLib\{8C389764-F036-48F2-9AE2-88C260DCF43B}`  
+   - `HKLM\SOFTWARE\Classes\CLSID\{A2D75874-6750-4931-94C1-C99D3BC9D0C7}`  
+   - `HKLM\SOFTWARE\Classes\CLSID\{195B4D07-3DE2-4744-BBF2-D90121AE785B}`  
 
 なお、UWF を有効にした環境で OS 再起動後も情報を維持したい製品がある場合、必要な除外設定につきましては対象製品サポートへお問い合わせいただく必要がございます。除外設定の追加によって何らかの問題が発生した場合にも、除外対象パスを使用するプロセス側にて調査が必要となりますため、対象の製品サポートにて事例の有無や対処方法をお問い合わせください。
 ***

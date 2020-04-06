@@ -6,10 +6,14 @@ categories:
 tags:
 - テンプレ
 ---
+テンプレート
+<!-- more -->
+<br>
 
+***
 # テンプレート
 ## テンプレートファイルについて
 これはテンプレートファイルです。このファイルはサイトから参照されません。
 
 ![Template](https://jpiotblog.github.io/images/template.png "ファイルの説明")
-
+***
