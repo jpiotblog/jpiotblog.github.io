@@ -12,7 +12,7 @@ tags:
 
 ***
 ## 対象
-事象発生マシン (OS: Windows 10 IoT Core または Windows 10 IoT Enterprise)  
+事象発生マシン (OS: Windows 10 Enterprise または Windows 10 IoT Core, Windows 10 IoT Enterprise)  
 
 ## 事前準備
 [こちら](https://jpiotblog.github.io/files/CollectInfo_UWF.txt "CollectInfo_UWF.txt") から CollectInfo_UWF.txt ファイルをダウンロードし、拡張子を .txt から .bat に変更、実施対象の任意の場所に格納します。  
