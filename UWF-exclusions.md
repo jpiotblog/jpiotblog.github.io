@@ -26,7 +26,7 @@ UWF の除外設定を実施するにあたり、留意いただきたい内容�
    ・ `HKLM\System\CurrentControlSet\Services\WdFilter`  
    ・ `HKLM\SYSTEM\ControlSet001\Control\DeviceClasses\{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}`  
 
-   Windows 10 2016 LTSB の環境では下記除外が入っていた場合にも同様の問題が発生するという報告がございます。該当する場合にはこちらの除外解除もご検討ください。  
+   Windows 10 Enterprise 2016 LTSB の環境では下記除外が入っていた場合にも同様の問題が発生するという報告がございます。該当する場合にはこちらの除外解除もご検討ください。  
 
    ・ `HKLM\SOFTWARE\Classes\TypeLib\{8C389764-F036-48F2-9AE2-88C260DCF43B}`  
    ・ `HKLM\SOFTWARE\Classes\CLSID\{A2D75874-6750-4931-94C1-C99D3BC9D0C7}`  
