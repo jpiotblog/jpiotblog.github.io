@@ -52,7 +52,7 @@ UWF を有効化している環境において、オーバーレイ領域が不�
    ```
 - 設定を反映させるため OS を再起動
    ```
-   uwfmgr overlay set-type disk
+   shutdown -r -t 0
    ```
 <br>
   

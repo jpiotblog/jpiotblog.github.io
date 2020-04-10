@@ -39,8 +39,8 @@ UWF を有効化した環境で、メモリ ダンプを取得する方法につ
    実行例:  
    ※ この手順ではシステム ドライブを C: ドライブとします。 
    ```
-   uwfmgr.exe filter enable  
    uwfmgr.exe volume protect c:  
+   uwfmgr.exe filter enable  
    shutdown -r -t 0  
    ```
 
