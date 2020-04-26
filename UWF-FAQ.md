@@ -6,12 +6,12 @@ categories:
 tags:
 - FAQ
 ---
-UWF 機能に関してよくあるご質問とその回答を纏めています。
+UWF 機能に関してよくあるご質問とその回答をまとめております。
 <!-- more -->
 <br>
 
 ***
-#### 参考となる公開情報について
+#### 製品を理解するために参考となる公開情報を教えて欲しい
 <details><summary style="font-size: 10pt">回答</summary>
 
 - [統合書き込みフィルター (UWF) 機能](https://docs.microsoft.com/ja-jp/windows-hardware/customize/enterprise/unified-write-filter)  
@@ -30,21 +30,21 @@ UWF 機能に関してよくあるご質問とその回答を纏めています�
 </details>
 
 ***
-#### UWF 適用環境で Windows Update 時に CPU が高くなる時がある  
+#### Windows Update 時に CPU が高くならないようにしたい
 <details><summary style="font-size: 10pt">回答</summary>
 
 WmiPrvSE.exe プロセスが uwfwmi.dll にて UWF のオーバーレイ ファイルを取得する処理に CPU を消費する傾向があります。こちらは仕様に基づく動作となります。
 </details>
 
 ***
-#### “UWF Servicing Mode” 実行時に、WSUS の設定が参照されない  
+#### “UWF Servicing Mode” 実行時に WSUS の設定が参照されないのは不具合か
 <details><summary style="font-size: 10pt">回答</summary>
 
 UWF の不具合として、2019 年 9 月 (Windows 10 1903 のみ 2019 年 10 月) の更新プログラムで修正しております。  
 </details>
 
 ***
-#### “uwfmgr.exe filter enable” コマンドを実行すると保護対象ボリュームに配置された Pagefile.sys が削除される  
+#### フィルター有効化時にページファイル (Pagefile.sys) が削除されないようにしたい
 <details><summary style="font-size: 10pt">回答</summary>
 
 初回の `uwfmgr.exe filter enable` コマンドの実行時に Pagefile に関するレジストリ値を操作する処理が実施される為です。回避策としては、`uwfmgr.exe filter enable` コマンドを実行した後、再起動の直前にもう一度 Pagefile.sys の設定を保護対象ボリュームに対して実施する必要があります。  
