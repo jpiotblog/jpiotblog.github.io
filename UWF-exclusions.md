@@ -1,5 +1,5 @@
 ---
-title: UWF の除外を推奨しないパスについて
+title: UWF の除外設定について
 date: 2020-02-19 00:00:00
 categories:
 - Unified Write Filter
@@ -33,3 +33,6 @@ UWF の除外設定を実施するにあたり、留意いただきたい内容�
    ・ `HKLM\SOFTWARE\Classes\CLSID\{195B4D07-3DE2-4744-BBF2-D90121AE785B}`  
 
 ***
+`変更履歴`  
+`2020/02/19 created by Mochizuki`  
+`2020/06/08 modified by Mochizuki` 

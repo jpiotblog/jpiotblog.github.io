@@ -12,7 +12,7 @@ UWF を有効化した環境で、UWF servicing mode を実行した際に、LCU
 <br>
 
 ***
-
+Windows 10 Enterprise 2016 LTSB および Windows 10 IoT Enterprise 2016 LTSB をご利用いただいている
 
 
 ![Template](https://jpiotblog.github.io/images/template.png "ファイルの説明")
