@@ -47,7 +47,7 @@ UWF を有効にした環境で OS 再起動後も情報を維持したい製品
 
 [UWF で保護されているデバイスでマルウェア対策のサポート](https://docs.microsoft.com/ja-jp/windows-hardware/customize/enterprise/uwf-antimalware-support)  
 
-また、上述のサイトの除外設定に伴い発生する問題の事例を後述にお纏めします。こちらに関連すると思われる問題が確認されている場合、Windows Defender の製品サポートへお問い合わせください。  
+また、上述のサイトの除外設定に伴い発生する問題の事例を後述にお纏めします。比較的新しいバージョンの OS (Windows 10 バージョン 1909 以降) では報告事例が無いため、製品選択の際の考慮事項としてご留意ください。関連すると思われる問題が確認された場合には、Windows Defender 製品サポートへお問い合わせください。  
 
 - Windows Defender のレジストリを除外すると OS 起動時にハングアップする  
 
@@ -65,4 +65,4 @@ UWF を有効にした環境で OS 再起動後も情報を維持したい製品
 ***
 `変更履歴`  
 `2020/02/19 created by Mochizuki`  
-`2020/06/08 modified by Mochizuki` 
+`2020/06/16 modified by Mochizuki` 
