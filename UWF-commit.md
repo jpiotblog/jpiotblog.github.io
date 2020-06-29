@@ -30,7 +30,7 @@ UWF オーバーレイの保護領域に対してファイル操作を行った�
 
 - 例 (c:\temp\test.txt の削除反映)
    ```
-   uwfmgr.exe file commit "c:\temp\test.txt"
+   uwfmgr.exe file commit-delete "c:\temp\test.txt"
    ```
 <br>
 > 補足:  
