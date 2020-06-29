@@ -11,8 +11,7 @@ UWF オーバーレイの保護領域に対して、ファイルやレジスト�
 <br>
 
 ***
-本内容は uwfmgr.exe ツールを使用します。  
-uwfmgr.exe ツールの利用法は、[こちら](https://docs.microsoft.com/en-us/windows-hardware/customize/enterprise/uwfmgrexe) を参照ください。  
+※ uwfmgr.exe ツールの利用法は、[こちら](https://docs.microsoft.com/en-us/windows-hardware/customize/enterprise/uwfmgrexe) を参照ください。  
 
 ***
 
@@ -66,7 +65,9 @@ UWF オーバーレイによってシステムの利用領域を保護してい�
    ```
 <br>
 > 補足:  
-HKCU レジストリ ハイブのキー、サブ キー、値に対する変更や削除、レジストリ ハイブ ((HKLM\Software, HKLM\System, HKLM\SAM, HKLM\Security 等) を指定した削除の実行は拒否されます。
+HKCU レジストリ ハイブのキー、サブ キー、値に対する変更や削除、レジストリ ハイブ ((HKLM\Software, HKLM\System, HKLM\SAM, HKLM\Security 等) を指定した削除の実行は拒否されます。  
+
+<br>
 
 ***
 `変更履歴`  
