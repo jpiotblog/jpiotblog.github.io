@@ -7,7 +7,7 @@ tags:
 - Out Of Memory
 - UWF servicing mode
 ---
-UWF を有効化した環境で、UWF servicing mode を実行した際に、LCU (累積更新プログラム) などが適用されない事象についてご紹介します。
+UWF を有効化した環境で、UWF servicing mode を実行した際に、LCU (累積更新プログラム) などが適用されない事象について紹介します。
 <!-- more -->
 <br>
 
