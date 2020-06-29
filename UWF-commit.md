@@ -14,7 +14,6 @@ UWF オーバーレイの保護領域に対して、ファイルやレジスト�
 ※ uwfmgr.exe ツールの利用法は、[こちら](https://docs.microsoft.com/en-us/windows-hardware/customize/enterprise/uwfmgrexe) を参照ください。  
 
 ***
-
 ## uwfmgr.exe File Commit/Cummit-Delete について
 
 UWF オーバーレイの保護領域に対してファイル操作を行った場合、OS 再起動後にこれらの操作内容がリセットされます。この時、uwfmgr.exe File Commit/Cummit-Delete によって、変更内容がリセットされないよう "コミット" することが可能です。  
@@ -46,7 +45,7 @@ UWF オーバーレイによってシステムの利用領域を保護してい�
 
 - 例 (HKLM\SOFTWARE\test キー配下の値 test の変更反映)
    ```
-   uwfmgr.exe registry commit "HKLM\SOFTWARE\test test"
+   uwfmgr.exe registry commit "HKLM\SOFTWARE\test" test
    ```
 <br>
 レジストリ キー、値の削除を反映する場合、uwfmgr.exe registry commit-delete を使用します。キーのみを指定して削除を実行することが可能です。  
@@ -54,7 +53,7 @@ UWF オーバーレイによってシステムの利用領域を保護してい�
 
 - 例 (HKLM\Software\test キー配下の値 test の削除反映)
    ```
-   uwfmgr.exe registry commit-delete "HKLM\Software\test test"
+   uwfmgr.exe registry commit-delete "HKLM\Software\test" test
    ```
 
 - 例 (HKLM\Software\test キーの削除反映)
