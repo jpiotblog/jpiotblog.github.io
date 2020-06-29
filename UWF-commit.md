@@ -37,8 +37,6 @@ UWF オーバーレイの保護領域に対してファイル操作を行った�
 > 補足:  
 新しくフォルダーを作成し、その配下に作成したファイルに対して uwfmgr file commit を実行した場合、作成したフォルダーを含めてコミットされます。逆に、フォルダー内のファイルを全て uwfmgr file commit-delete で削除後、空のフォルダーを削除する場合には uwfmgr file commit-delete をそのフォルダーに対して実行することでフォルダーの削除がコミットされます。
 
-<br>
-
 ***
 ## uwfmgr.exe Registry Commit/Cummit-Delete について
 
@@ -66,8 +64,6 @@ UWF オーバーレイによってシステムの利用領域を保護してい�
 <br>
 > 補足:  
 HKCU レジストリ ハイブのキー、サブ キー、値に対する変更や削除、レジストリ ハイブ ((HKLM\Software, HKLM\System, HKLM\SAM, HKLM\Security 等) を指定した削除の実行は拒否されます。  
-
-<br>
 
 ***
 `変更履歴`  
