@@ -71,7 +71,7 @@ UWF を有効化した環境で、メモリ ダンプを取得する方法につ
    ※ 補足  
    この設定値は、次のレジストリに反映されます。なお、直接レジストリ値を編集することでも、ページング ファイル サイズを設定することができます。  
 
-   キー: `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SessionManager\MemoryManagement`  
+   キー: `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Memory Management`  
    名前: `PagingFiles`  
    種類: `REG_MULTI_SZ`  
    データ: <ページ ファイル保存先> <初期サイズ (MB)> <最大サイズ (MB)> (設定例: `d:\pagefile.sys 4396 4396`)
