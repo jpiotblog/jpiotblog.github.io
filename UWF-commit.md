@@ -1,5 +1,5 @@
 ---
-title: uwfmgr.exe コマンドの Commit/Cummit-Delete サブ オプションについて
+title: uwfmgr.exe コマンドの Commit/Commit-Delete サブ オプションについて
 date: 2020-06-29 17:00:00
 categories:
 - Unified Write Filter
@@ -14,9 +14,9 @@ UWF オーバーレイの保護領域に対して、ファイルやレジスト�
 ※ uwfmgr.exe ツールの利用法は、[こちら](https://docs.microsoft.com/en-us/windows-hardware/customize/enterprise/uwfmgrexe) を参照ください。  
 
 ***
-## uwfmgr.exe File Commit/Cummit-Delete について
+## uwfmgr.exe File Commit/Commit-Delete について
 
-UWF オーバーレイの保護領域に対してファイル操作を行った場合、OS 再起動後にこれらの操作内容がリセットされます。この時、uwfmgr.exe File Commit/Cummit-Delete によって、変更内容がリセットされないよう "コミット" することが可能です。コミットしたタイミングの変更内容が実際のシステムに反映されます。  
+UWF オーバーレイの保護領域に対してファイル操作を行った場合、OS 再起動後にこれらの操作内容がリセットされます。この時、uwfmgr.exe File Commit/Commit-Delete によって、変更内容がリセットされないよう "コミット" することが可能です。コミットしたタイミングの変更内容が実際のシステムに反映されます。  
 
 ファイルの作成、変更を反映する場合、uwfmgr.exe file commit を使用します。実行はファイル単位で、正規表現は使用できません。  
 
@@ -51,13 +51,13 @@ UWF オーバーレイの保護領域に対してファイル操作を行った�
 >   uwfmgr file commit c:\temp\test.txt
 >   uwfmgr file commit-delete c:\temp\test.txt
 >   ```
->   > 2 行目の echo コマンドで commit という文字列を c:\temp\test.txt へ標準出力し、ファイルを作成します。  
->   > 3 行目で作成されたファイルをコミットし、4 行目で削除します。
+>   2 行目の echo コマンドで commit という文字列を c:\temp\test.txt へ標準出力し、ファイルを作成します。  
+>   3 行目で作成されたファイルをコミットし、4 行目で削除します。
 
 ***
-## uwfmgr.exe Registry Commit/Cummit-Delete について
+## uwfmgr.exe Registry Commit/Commit-Delete について
 
-UWF オーバーレイによってシステムの利用領域を保護している状態でレジストリ キーや値の変更を行った場合、OS 再起動後に変更内容はリセットされます。この時、uwfmgr.exe Registry Commit/Cummit-Delete によって、変更内容がリセットされないよう "コミット" することが可能です。コミットしたタイミングの変更内容がシステムに反映されます。  
+UWF オーバーレイによってシステムの利用領域を保護している状態でレジストリ キーや値の変更を行った場合、OS 再起動後に変更内容はリセットされます。この時、uwfmgr.exe Registry Commit/Commit-Delete によって、変更内容がリセットされないよう "コミット" することが可能です。コミットしたタイミングの変更内容がシステムに反映されます。  
 
 レジストリ キー、値の作成、変更を反映する場合、uwfmgr.exe registry commit を使用します。実行は値単位で、正規表現は使用できません。    
 
