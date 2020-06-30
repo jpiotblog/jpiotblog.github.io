@@ -24,7 +24,7 @@ UWF オーバーレイの保護領域に対してファイル操作を行った�
    ```
    uwfmgr.exe file commit "c:\temp\test.txt"
    ```
-<br>
+
 ファイルの削除を反映する場合、uwfmgr.exe file commit-delete を使用します。実行はファイル単位ですが、空のフォルダーに対しても使用可能です。正規表現は使用できません。  
 ファイル削除後に実行するのではなく、コマンドを実行によってファイルを削除します。  
 
@@ -40,7 +40,6 @@ UWF オーバーレイの保護領域に対してファイル操作を行った�
 
 > 補足:  
 新しくフォルダーを作成し、その配下に作成したファイルに対して uwfmgr file commit を実行した場合、作成したフォルダーを含めてコミットされます。逆に、フォルダー内のファイルを全て uwfmgr file commit-delete で削除後、空のフォルダーを削除する場合には uwfmgr file commit-delete をそのフォルダーに対して実行することでフォルダーの削除がコミットされます。
-<br>
 
 ***
 ## uwfmgr.exe Registry Commit/Cummit-Delete について
@@ -53,7 +52,7 @@ UWF オーバーレイによってシステムの利用領域を保護してい�
    ```
    uwfmgr.exe registry commit "HKLM\SOFTWARE\test" test
    ```
-<br>
+
 レジストリ キー、値の削除を反映する場合、uwfmgr.exe registry commit-delete を使用します。キーのみを指定して削除を実行することが可能です。  
 レジストリ キー、値を削除後に実行するのではなく、コマンドを実行によって削除します。  
 
@@ -66,11 +65,9 @@ UWF オーバーレイによってシステムの利用領域を保護してい�
    ```
    uwfmgr.exe registry commit-delete "HKLM\Software\test"
    ```
-<br>
 
 > 補足:  
 HKCU レジストリ ハイブのキー、サブ キー、値の変更や削除は行えません。その他レジストリ ハイブ ((HKLM\Software, HKLM\System, HKLM\SAM, HKLM\Security 等) を直接指定して削除することができません。仕様上、実行が拒否されます。
-<br>
 
 ***
 `変更履歴`  
