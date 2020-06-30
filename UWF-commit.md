@@ -80,7 +80,7 @@ UWF オーバーレイによってシステムの利用領域を保護してい�
    ```
 
 > 補足:  
-HKCU レジストリ ハイブのキー、サブ キー、値の変更や削除は行えません。その他レジストリ ハイブ ((HKLM\Software, HKLM\System, HKLM\SAM, HKLM\Security 等) を直接指定して削除することができません。仕様上、実行が拒否されます。
+HKLM 以外のレジストリ ハイブ (例えば、HKCR、HKCU など) のキー、サブ キー、値の作成や変更、削除は行えません。また、HKLM 自体や、HKLM\Software, HKLM\System, HKLM\SAM, HKLM\Security, HKLM\Components キーを変更対象とすることはできません。これらは仕様上、実行が拒否されます。
 
 ***
 `変更履歴`  
