@@ -45,13 +45,14 @@ UWF オーバーレイの保護領域に対してファイル操作を行った�
 現状、新しく作成したフォルダーのみ (空の状態) をコミットする方法がありません。代替策として、フォルダーの配下に適当なファイルを作成し Commit 実行後、Comite-Delete で削除することでフォルダーのみをコミットしたことと同等の結果を得ることが可能です。
 >
 > - 例 (c:\temp フォルダーのみコミットする場合):
->    ```
->    mkdir c:\temp
->    echo commit > c:\temp\test.txt
->    uwfmgr file commit c:\temp\test.txt
->    uwfmgr file commit-delete c:\temp\test.txt
->    ```
->    ※ 2 行目の echo コマンドで commit という文字列を c:\temp\test.txt へ標準出力し、ファイルを作成しています。
+>   ```
+>   mkdir c:\temp
+>   echo commit > c:\temp\test.txt
+>   uwfmgr file commit c:\temp\test.txt
+>   uwfmgr file commit-delete c:\temp\test.txt
+>   ```
+>   > 2 行目の echo コマンドで commit という文字列を c:\temp\test.txt へ標準出力し、ファイルを作成します。  
+>   > 3 行目で作成されたファイルをコミットし、4 行目で削除します。
 
 ***
 ## uwfmgr.exe Registry Commit/Cummit-Delete について
