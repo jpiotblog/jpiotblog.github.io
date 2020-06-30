@@ -28,18 +28,29 @@ UWF オーバーレイの保護領域に対してファイル操作を行った�
 ファイルの削除を反映する場合、uwfmgr.exe file commit-delete を使用します。実行はファイル単位ですが、空のフォルダーに対しても使用可能です。正規表現は使用できません。  
 ファイル削除後に実行するのではなく、コマンドを実行によってファイルを削除します。  
 
-- 例 (c:\temp\test.txt の削除反映)
+- 例 (c:\temp\test.txt の削除反映):
    ```
    uwfmgr.exe file commit-delete "c:\temp\test.txt"
    ```
 
-- 例 (c:\temp の削除反映 ※ 空のフォルダーである必要があります)
+- 例 (c:\temp の削除反映 ※ 空のフォルダーである必要があります):
    ```
    uwfmgr.exe file commit-delete "c:\temp"
    ```
 
-> 補足:  
-新しくフォルダーを作成し、その配下に作成したファイルに対して uwfmgr file commit を実行した場合、作成したフォルダーを含めてコミットされます。逆に、フォルダー内のファイルを全て uwfmgr file commit-delete で削除後、空のフォルダーを削除する場合には uwfmgr file commit-delete をそのフォルダーに対して実行することでフォルダーの削除がコミットされます。
+> 補足 1:  
+新しくフォルダーを作成し、その配下に作成したファイルに対して uwfmgr file commit を実行した場合、作成したフォルダーを含めてコミットされます。逆に、フォルダー内のファイルを全て uwfmgr file commit-delete で削除後、空のフォルダーを削除する場合には uwfmgr file commit-delete をそのフォルダーに対して実行することでフォルダーの削除がコミットされます。  
+
+> 補足 2:  
+現状、新しく作成したフォルダーのみ (空の状態) をコミットする方法がありません。代替策として、フォルダーの配下に適当なファイルを作成し Commit 実行後、Comite-Delete で削除することでフォルダーのみをコミットしたことと同等の結果を得ることが可能です。
+>
+> - 例 (c:\temp フォルダーのみコミットする場合):
+>    ```
+>    mkdir c:\temp
+>    echo commit > c:\temp\test.txt
+>    uwfmgr file commit c:\temp\test.txt
+>    uwfmgr file commit-delete c:\temp\test.txt
+>    ```  
 
 ***
 ## uwfmgr.exe Registry Commit/Cummit-Delete について
@@ -48,7 +59,7 @@ UWF オーバーレイによってシステムの利用領域を保護してい�
 
 レジストリ キー、値の作成、変更を反映する場合、uwfmgr.exe registry commit を使用します。実行は値単位で、正規表現は使用できません。    
 
-- 例 (HKLM\SOFTWARE\test キー配下の値 test の変更反映)
+- 例 (HKLM\SOFTWARE\test キー配下の値 test の変更反映):
    ```
    uwfmgr.exe registry commit "HKLM\SOFTWARE\test" test
    ```
@@ -56,12 +67,12 @@ UWF オーバーレイによってシステムの利用領域を保護してい�
 レジストリ キー、値の削除を反映する場合、uwfmgr.exe registry commit-delete を使用します。キーのみを指定して削除を実行することが可能です。  
 レジストリ キー、値を削除後に実行するのではなく、コマンドを実行によって削除します。  
 
-- 例 (HKLM\Software\test キー配下の値 test の削除反映)
+- 例 (HKLM\Software\test キー配下の値 test の削除反映):
    ```
    uwfmgr.exe registry commit-delete "HKLM\Software\test" test
    ```
 
-- 例 (HKLM\Software\test キーの削除反映)
+- 例 (HKLM\Software\test キーの削除反映):
    ```
    uwfmgr.exe registry commit-delete "HKLM\Software\test"
    ```
