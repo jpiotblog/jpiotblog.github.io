@@ -50,7 +50,8 @@ UWF オーバーレイの保護領域に対してファイル操作を行った�
 >    echo commit > c:\temp\test.txt
 >    uwfmgr file commit c:\temp\test.txt
 >    uwfmgr file commit-delete c:\temp\test.txt
->    ```  
+>    ```
+>    ※ 2 行目の echo コマンドで commit という文字列を c:\temp\test.txt へ標準出力し、ファイルを作成しています。
 
 ***
 ## uwfmgr.exe Registry Commit/Cummit-Delete について
