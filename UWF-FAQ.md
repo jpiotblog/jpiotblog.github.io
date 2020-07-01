@@ -47,7 +47,7 @@ UWF の不具合として、2019 年 9 月 (Windows 10 1903 のみ 2019 年 10 �
 #### フィルター有効化時にページファイル (Pagefile.sys) が削除されないようにしたい
 <details><summary style="font-size: 10pt">回答</summary>
 
-初回の `uwfmgr.exe filter enable` コマンドの実行時に Pagefile に関するレジストリ値を操作する処理が実施される為です。回避策としては、`uwfmgr.exe filter enable` コマンドを実行した後、再起動の直前にもう一度 Pagefile.sys の設定を保護対象ボリュームに対して実施する必要があります。  
+初回の `uwfmgr.exe filter enable` コマンドの実行時に Pagefile に関するレジストリ値を操作する処理が実施される為です。回避策としては、`uwfmgr.exe filter enable` コマンドを実行した後、再起動の直前にもう一度 Pagefile.sys の設定を保護対象外のボリュームに対して実施する必要があります。  
 </details>
 
 ***
