@@ -49,28 +49,28 @@ Windows 10 Enterprise 2016 LTSB および Windows 10 IoT Enterprise 2016 LTSB �
 #### 運用手順
 (1) 以下のコマンドを実行して、UWF フィルターを無効化します (※ コマンド実行後、OS が再起動します)。
 ```
-> uwfmgr.exe filter disable
-> shutdown /r /t 0
+uwfmgr.exe filter disable
+shutdown /r /t 0
 ```
 
 (2) 以下のコマンドを実行して、ページング ファイルを設定します (※ コマンド実行後、OS が再起動します)。
 ```
-> reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Memory Management" /v PagingFiles /t REG_MULTI_SZ /d "c:\pagefile.sys 4396 4396" /f
-> shutdown /r /t 0
+reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Memory Management" /v PagingFiles /t REG_MULTI_SZ /d "c:\pagefile.sys 4396 4396" /f
+shutdown /r /t 0
 ```
 
 (3) 手動での Windows Update を実行します。
 
 (4) 以下のコマンドを実行して、ページング ファイルの設定を削除します (※ コマンド実行後、OS が再起動します)。  
 ```
-> reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Memory Management" /v PagingFiles /t REG_MULTI_SZ /d "" /f
-> shutdown /r /t 0
+reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Memory Management" /v PagingFiles /t REG_MULTI_SZ /d "" /f
+shutdown /r /t 0
 ```
 
 (5) 以下のコマンドを実行して、UWF フィルターを有効化します (※ コマンド実行後、OS が再起動します)。  
 ```
-> uwfmgr.exe filter enable
-> shutdown /r /t 0
+uwfmgr.exe filter enable
+shutdown /r /t 0
 ```
 
 ***
