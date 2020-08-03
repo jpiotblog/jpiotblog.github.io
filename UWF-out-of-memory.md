@@ -24,7 +24,6 @@ UWF 有効化環境で LCU (累積更新プログラム) の適用時に Out Of 
 UWF を有効化している環境で Windows Update を適用する方法は、主に以下 2 通りになります。
 
 - uwfmgr.exe filter disable を実行して OS 再起動し、手動で Windows Update を実行する。  
-
 - uwfmgr.exe servicing enable を実行して[UWF サービスモード](https://docs.microsoft.com/ja-jp/windows-hardware/customize/enterprise/service-uwf-protected-devices)を有効化する。  
 
 この時、上述の適用環境に該当するマシンでは Out Of Memory が発生し、更新が失敗する事象が確認されています。 
