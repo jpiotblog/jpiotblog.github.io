@@ -52,7 +52,7 @@ UWF の不具合として、2019 年 9 月 (Windows 10 1903 のみ 2019 年 10 �
 
 ***
 #### UWF を有効化して利用開始する際のベストプラクティスについて
-</details><summary style="font-size: 10pt">回答</summary>
+<details><summary style="font-size: 10pt">回答</summary>
 
 以下の実施についてご留意ください。  
 
