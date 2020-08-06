@@ -13,7 +13,7 @@ UWF 機能を有効化した環境で Sysprep を用いたマスター イメー
 ***
 統合書き込みフィルター (UWF) は、Windows 10 のオプション機能になります。端末のキッティングにあたり UWF 機能を有効化した状態でマスター イメージを作成する場合、まずは以下のサイトの情報に従い UWF 機能をインストールします。  
 
-- [統合書き込みフィルター (UWF) 機能の使用](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/iot-ent-device-lockdown-features#unified-write-filter-uwf)
+- [統合書き込みフィルター (UWF) 機能の使用](https://docs.microsoft.com/ja-jp/windows-hardware/customize/enterprise/uwf-turnonuwf)
    > (抜粋)  
    1\. 次の機能をインストールします。  
    a. [スタート] をクリックし、「 Windows の機能の有効化または無効化」と入力します。  
