@@ -179,8 +179,8 @@ xmlns:v2="http://schemas.microsoft.com/ShellLauncher/2019/Configuration">
 - [Use Shell Launcher to create a Windows 10 kiosk](https://docs.microsoft.com/en-us/windows/configuration/kiosk-shelllauncher)
 - [ShutdownBlockReasonCreate function](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-shutdownblockreasoncreate)
 - [WM_QUERYENDSESSION message](https://docs.microsoft.com/en-us/windows/win32/shutdown/wm-queryendsession)
-- [SetProcessShutdownParameters function](https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-setprocessshutdownparameters)
-
+- [SetProcessShutdownParameters function](https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-setprocessshutdownparameters)  
+<br>  
 
 以上の内容がお役に立てば幸いです。
 ***
