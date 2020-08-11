@@ -73,6 +73,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 今回は、Windows 10 IoT Enterprise LTSC 2019 x64 を使用します。Shell Launcher V2 は Windows 10 バージョン 1809 以降でサポートされており、バージョン 1809 では KB4551853 をインストールすることでご利用いただけます。  
 
+---
 ## 手順
 
 (1) Shell Launcher の機能を有効にした Windows 10 IoT Enterprise LTSC 2019 で、以下の KB を適用します。
@@ -173,6 +174,7 @@ xmlns:v2="http://schemas.microsoft.com/ShellLauncher/2019/Configuration">
 
 ![Closing4apps-and-shuttingdown.png](https://jpiotblog.github.io/images/Cancel-shutdown-with-Shell-Launcher/Closing4apps-and-shuttingdown.png)
 
+---
 ## 参考ドキュメント  
 - [Use Shell Launcher to create a Windows 10 kiosk](https://docs.microsoft.com/en-us/windows/configuration/kiosk-shelllauncher)
 - [ShutdownBlockReasonCreate function](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-shutdownblockreasoncreate)
