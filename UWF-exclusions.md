@@ -31,18 +31,23 @@ UWF は、保護対象領域に対する書き込みをオーバーレイ領域�
 
 ## 除外を推奨しないパスについて
 
+システムの起動の初期段階でアクセスするフォルダ (C:\Windows 配下など) は、他のデータと一貫性を持っているため、一部のフォルダーのみを除外することで問題が発生する場合があります。この一貫性が崩れた場合、システムがハンドルできない問題が発生し 「SYSTEM THREAD EXCEPTION NOT HANDLED」 エラー表示されます。これは、システム内部にて Access violation が発生 (アクセスできる情報としてアクセスしたが、情報が無いか権限が無く失敗) することでシステムの起動が進められなくなるためです。  
+
 一般的な除外設定を以下サイトに纏めて公開しております。除外を推奨しないパスの情報も含まれておりますので、併せてご確認ください。  
 
-[書き込みフィルターの除外](https://docs.microsoft.com/ja-jp/windows-hardware/customize/enterprise/uwfexclusions)  
+- [書き込みフィルターの除外](https://docs.microsoft.com/ja-jp/windows-hardware/customize/enterprise/uwfexclusions)  
 
-例えば、システムの起動の初期段階でアクセスするフォルダ (C:\Windows 配下など) は、他のデータと一貫性を持っているため、一部のフォルダーのみを除外することで問題が発生する場合があります。この一貫性が崩れた場合、システムがハンドルできない問題が発生し 「SYSTEM THREAD EXCEPTION NOT HANDLED」 エラー表示されます。これは、システム内部にて Access violation が発生 (アクセスできる情報としてアクセスしたが、情報が無いか権限が無く失敗) することでシステムの起動が進められなくなるためです。  
+以下サイトにも一部除外を推奨しないパスについて記載があります。
 
-現在公開情報への追加リクエスト中の内容となりますが、下記情報も併せてご確認ください。  
+- [統合書き込みフィルター (UWF) 機能](https://docs.microsoft.com/ja-jp/windows-hardware/customize/enterprise/unified-write-filter) 
+   >注意  
+   >この問題を回避するには、日付と時刻の設定 ("%windir%\bootstat.dat") を保持するファイルを書き込みフィルターの除外に追加しないでください。 これにより、Stop エラー 0x7E (SYSTEM_THREAD_EXCEPTION_NOT_HANDLED) が発生します。 
+
+現在公開情報への追加リクエスト中の内容となりますが、下記についても除外を設定しないようお願いいたします。  
 
 - C:\Windows\WinSXS フォルダーを除外すると OS 起動時に BSOD が発生する  
 
    > Winodws 10 Enterprise 2019 LTSC では、C:\Windows\WinSXS フォルダーを除外するとシステム起動時に 「SYSTEM THREAD EXCEPTION NOT HANDLED」 で BSOD が発生するという報告がございます。C:\Windows\WinSXS フォルダー配下にはシステム起動初期にアクセスする情報が含まれておりますため、除外をお勧めいたしません。  
-
 ***
 
 ## Windows Defender 用の除外設定について
