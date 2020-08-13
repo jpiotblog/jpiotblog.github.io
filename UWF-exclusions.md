@@ -35,9 +35,9 @@ UWF は、保護対象領域に対する書き込みをオーバーレイ領域�
 
 一般的な除外設定に加えて、除外を推奨しないパスの情報も含まれておりますので、併せてご確認ください。  
 
-- [Write filter exclusions](https://docs.microsoft.com/en-us/windows-hardware/customize/enterprise/uwfexclusions)  
-   >! Important  
-   >Don't add exclusions for the following:
+- [書き込みフィルターの除外](https://docs.microsoft.com/ja-jp/windows-hardware/customize/enterprise/uwfexclusions)  
+   >! 重要  
+   >次の除外を追加しないでください。
    >- \Windows\System32\config\DEFAULT  
    >- \Windows\System32\config\SAM  
    >- \Windows\System32\config\SECURITY  
@@ -48,22 +48,22 @@ UWF は、保護対象領域に対する書き込みをオーバーレイ領域�
    >- <System Drive>\EFI\Microsoft\Boot\BOOTSTAT.DAT  
    >- <System Drive>\Boot\BOOTSTAT.DAT  
    >
-   >Also, don't add exclusions for the following:
-   >- The volume root. For example, C: or D:.
-   >- The \Windows folder on the system volume.
-   >- The \Windows\System32 folder on the system volume.
-   >- The \Windows\System32\Drivers folder on the system volume.
-   >- Paging files.
+   >また、次の項目の除外を追加しないでください。  
+   >- ボリュームルート。 例: C: または d:  
+   >- システムボリューム上のフォルダー。\Windows  
+   >- システムボリューム上のフォルダー。\Windows\System32  
+   >- システムボリューム上のフォルダー。\Windows\System32\Drivers  
+   >- ページングファイル。  
    >
-   >Adding an exclusion for any of these items is unsupported and may lead to unpredictable results. It's OK to exclude subdirectories and files under these locations.
+   >これらのアイテムの除外の追加はサポートされていないため、予期しない結果が生じる可能性があります。 これらの場所にあるサブディレクトリとファイルを除外するのは問題ありません。
 
-   >! Important  
-   >Don't add exclusions for the following:
+   >! 重要  
+   >次の除外を追加しないでください。
    >- HKLM\SECURITY\Policy\Secrets\$MACHINE.ACC
 
-- [Unified Write Filter (UWF) feature](https://docs.microsoft.com/en-us/windows-hardware/customize/enterprise/unified-write-filter) 
-   >! Note  
-   >Do not add the file that retains date and time settings ("%windir%\bootstat.dat") to the write filter exclusions to work around this issue. Doing this causes Stop error 0x7E (SYSTEM_THREAD_EXCEPTION_NOT_HANDLED) to occur.
+- [統合書き込みフィルター (UWF) 機能](https://docs.microsoft.com/ja-jp/windows-hardware/customize/enterprise/unified-write-filter) 
+   >! 注意  
+   >この問題を回避するには、日付と時刻の設定 ("%windir%\bootstat.dat") を保持するファイルを書き込みフィルターの除外に追加しないでください。 これにより、Stop エラー 0x7E (SYSTEM_THREAD_EXCEPTION_NOT_HANDLED) が発生します。
 
 <br>
 現在公開情報への追加リクエスト中の内容となりますが、下記についても除外を設定しないようお願いいたします。  
