@@ -16,7 +16,7 @@ Windows Embedded 8 Standard において、Windows Update がエラー 8007000E 
 
 - [August 11, 2020-KB4571736 (Monthly Rollup)](https://support.microsoft.com/en-us/help/4571736/windows-server-2012-update)
 
-当該現象が確認されている端末にて、KB4571736 (または以降のロールアップ更新プログラム) を適用することで事象の改善が見込めます。すでに現象が発生している環境では、上記更新プログラムを Windows Update カタログ サイトから手動でダウンロードし、適用ください。  
+当該現象が確認されている端末にて、KB4571736 (または以降のロールアップ更新プログラム) を適用することで改善が見込めます。すでに現象が発生している環境では、上記更新プログラムを Windows Update カタログ サイトから手動でダウンロードし、適用ください。  
 
 - [Windows Update カタログ (KB4571736)](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4571736)
 
