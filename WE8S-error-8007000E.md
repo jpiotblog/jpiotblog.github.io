@@ -1,5 +1,5 @@
 ---
-title: Windows Embedded 8 Standard で Windows Update がエラー 8007000E で失敗する (関連 KB4571736)
+title: Windows Embedded 8 Standard で Windows Update がエラー 8007000E で失敗する (KB4571736 関連)
 date: 2020-08-13 12:00:00
 categories:
 - Windows Embedded 8 Standard
