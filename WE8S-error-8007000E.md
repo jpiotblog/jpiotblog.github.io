@@ -12,7 +12,7 @@ Windows Embedded 8 Standard において、Windows Update がエラー 8007000E 
 <br>
 
 ***
-Windows Embedded 8 Standard において、Windows Update がエラー 8007000E で失敗する現象が報告されております。この事象の修正を 2020 年 8 月のロールアップ更新プログラム (KB4571736) でリリースいたしました。  
+Windows Embedded 8 Standard において、Windows Update がエラー 8007000E で失敗する現象が報告されております。この現象の修正を 2020 年 8 月のロールアップ更新プログラム (KB4571736) でリリースいたしました。  
 
 - [August 11, 2020-KB4571736 (Monthly Rollup)](https://support.microsoft.com/en-us/help/4571736/windows-server-2012-update)
 
