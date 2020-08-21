@@ -1,6 +1,6 @@
 ---
 title: UWF 有効化環境で Windows Update 実行時に Out Of Memory が発生する
-date: 2020-08-01 12:00:00
+date: 2020-08-21 12:00:00
 categories:
 - Unified Write Filter
 tags:
@@ -77,3 +77,4 @@ shutdown /r /t 0
 ***
 `変更履歴`  
 `2020/08/01 created by Mochizuki`  
+`2020/08/21 modified by Mochizuki`  
