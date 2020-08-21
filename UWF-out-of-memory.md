@@ -101,7 +101,7 @@ shutdown /r /t 0
 
 (4-4) [仮想メモリ] ダイアログの [ページング ファイルなし] にチェックを入れ、[設定] ボタンをクリックし、[OK] ボタンをクリックします。
 
-![Template](https://jpiotblog.github.io/images/UWF-out-of-memory/Virtual-memory-3-4.png)
+![Template](https://jpiotblog.github.io/images/UWF-out-of-memory/Virtual-memory-4-4.png)
 
 (4-5) 続行するか確認のダイアログがポップアップした場合、[はい] を選択します。
 
