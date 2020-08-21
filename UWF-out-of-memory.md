@@ -13,8 +13,7 @@ UWF 有効化環境で LCU (累積更新プログラム) の適用時に Out Of 
 
 ***
 ### 適用環境
-- Windows 10 Enterprise 2016 LTSB
-- Windows 10 IoT Enterprise 2016 LTSB
+- Windows 10 Enterprise 2016 LTSB または Windows 10 IoT Enterprise 2016 LTSB
 - 物理メモリが 4 GB
 - UWF でシステム使用領域を保護している
 
