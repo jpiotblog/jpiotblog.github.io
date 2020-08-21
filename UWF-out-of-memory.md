@@ -55,6 +55,7 @@ shutdown /r /t 0
 ```
 
 (2) 以下のコマンドを実行して、ページング ファイルを設定します (※ コマンド実行後、OS が再起動します)。
+GUI で実行する場合は [こちら](https://jpiotblog.github.io/blog/2020/08/21/UWF-out-of-memory/#2-%E3%81%AE%E6%89%8B%E9%A0%86%E3%82%92-GUI-%E3%81%A7%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95) を参照ください。  
 ```
 reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Memory Management" /v PagingFiles /t REG_MULTI_SZ /d "c:\pagefile.sys 4396 4396" /f
 shutdown /r /t 0
@@ -62,7 +63,7 @@ shutdown /r /t 0
 
 (3) 手動での Windows Update を実行します。
 
-(4) 以下のコマンドを実行して、ページング ファイルの設定を削除します (※ コマンド実行後、OS が再起動します)。  
+(4) 以下のコマンドを実行して、ページング ファイルの設定を削除します (※ コマンド実行後、OS が再起動します)。GUI で実行する場合は [こちら](https://jpiotblog.github.io/blog/2020/08/21/UWF-out-of-memory/#4-%E3%81%AE%E6%89%8B%E9%A0%86%E3%82%92-GUI-%E3%81%A7%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95) を参照ください。  
 ```
 reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Memory Management" /v PagingFiles /t REG_MULTI_SZ /d "" /f
 shutdown /r /t 0
@@ -81,11 +82,8 @@ shutdown /r /t 0
 
 #### (2) の手順を GUI で実行する方法
 (2-1) Ctrl + R キーを押下し、[名前] 欄に sysdm.cpl と入力して [OK] ボタンをクリックします。  
-
 (2-2) [システムのプロパティ] ダイアログの [詳細設定] タブ - [設定] ボタンをクリックします。  
-
 (2-3) [パフォーマンス オプション] ダイアログの [詳細設定] タブ - [変更] ボタンをクリックします。  
-
 (2-4) [仮想メモリ] ダイアログの [すべてのドライブのページング ファイルのサイズを自動的に管理する] のチェックを外し、[カスタム サイズ] にチェックを入れ、初期サイズと最大サイズに 4396 を入力、[設定] ボタンをクリックし、[OK] ボタンをクリックします。
 
 <img src="https://jpiotblog.github.io/images/UWF-out-of-memory/Virtual-memory-2-4.png" width=300px>  
@@ -94,11 +92,8 @@ shutdown /r /t 0
 
 #### (4) の手順を GUI で実行する方法
 (4-1) Ctrl + R キーを押下し、[名前] 欄に sysdm.cpl と入力して [OK] ボタンをクリックします。  
-
 (4-2) [システムのプロパティ] ダイアログの [詳細設定] タブ - [設定] ボタンをクリックします。  
-
 (4-3) [パフォーマンス オプション] ダイアログの [詳細設定] タブ - [変更] ボタンをクリックします。  
-
 (4-4) [仮想メモリ] ダイアログの [ページング ファイルなし] にチェックを入れ、[設定] ボタンをクリックし、[OK] ボタンをクリックします。
 
 <img src="https://jpiotblog.github.io/images/UWF-out-of-memory/Virtual-memory-4-4.png" width=300px>  
