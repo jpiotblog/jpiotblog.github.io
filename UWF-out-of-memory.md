@@ -88,7 +88,7 @@ shutdown /r /t 0
 
 (2-4) [仮想メモリ] ダイアログの [すべてのドライブのページング ファイルのサイズを自動的に管理する] のチェックを外し、[カスタム サイズ] にチェックを入れ、初期サイズと最大サイズに 4396 を入力、[設定] ボタンをクリックし、[OK] ボタンをクリックします。
 
-![Template](https://jpiotblog.github.io/images/UWF-out-of-memory/Virtual-memory-2-4.png)
+<img src="https://jpiotblog.github.io/images/UWF-out-of-memory/Virtual-memory-2-4.png" width=300px>  
 
 (2-5) OS の再起動を促すダイアログがポップアップした場合、指示に従い再起動します。表示されなかった場合には、手動で OS を再起動します。  
 
@@ -101,7 +101,7 @@ shutdown /r /t 0
 
 (4-4) [仮想メモリ] ダイアログの [ページング ファイルなし] にチェックを入れ、[設定] ボタンをクリックし、[OK] ボタンをクリックします。
 
-![Template](https://jpiotblog.github.io/images/UWF-out-of-memory/Virtual-memory-4-4.png)
+<img src="https://jpiotblog.github.io/images/UWF-out-of-memory/Virtual-memory-4-4.png" width=300px>  
 
 (4-5) 続行するか確認のダイアログがポップアップした場合、[はい] を選択します。
 
