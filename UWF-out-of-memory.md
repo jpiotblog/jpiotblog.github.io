@@ -52,8 +52,8 @@ uwfmgr.exe filter disable
 shutdown /r /t 0
 ```
 
-(2) 以下のコマンドを実行して、ページング ファイルを設定します (※ コマンド実行後、OS が再起動します)。
-GUI で実行する場合は [こちら](https://jpiotblog.github.io/blog/2020/08/21/UWF-out-of-memory/#2-%E3%81%AE%E6%89%8B%E9%A0%86%E3%82%92-GUI-%E3%81%A7%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95) を参照ください。  
+(2) 以下のコマンドを実行して、ページング ファイルを設定します (コマンド実行後、OS が再起動します)。  
+※ GUI で実行する場合は [こちら](https://jpiotblog.github.io/blog/2020/08/21/UWF-out-of-memory/#2-%E3%81%AE%E6%89%8B%E9%A0%86%E3%82%92-GUI-%E3%81%A7%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95) を参照ください。  
 ```
 reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Memory Management" /v PagingFiles /t REG_MULTI_SZ /d "c:\pagefile.sys 4396 4396" /f
 shutdown /r /t 0
@@ -61,13 +61,14 @@ shutdown /r /t 0
 
 (3) 手動での Windows Update を実行します。
 
-(4) 以下のコマンドを実行して、ページング ファイルの設定を削除します (※ コマンド実行後、OS が再起動します)。GUI で実行する場合は [こちら](https://jpiotblog.github.io/blog/2020/08/21/UWF-out-of-memory/#4-%E3%81%AE%E6%89%8B%E9%A0%86%E3%82%92-GUI-%E3%81%A7%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95) を参照ください。  
+(4) 以下のコマンドを実行して、ページング ファイルの設定を削除します (コマンド実行後、OS が再起動します)。  
+※ GUI で実行する場合は [こちら](https://jpiotblog.github.io/blog/2020/08/21/UWF-out-of-memory/#4-%E3%81%AE%E6%89%8B%E9%A0%86%E3%82%92-GUI-%E3%81%A7%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95) を参照ください。  
 ```
 reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Memory Management" /v PagingFiles /t REG_MULTI_SZ /d "" /f
 shutdown /r /t 0
 ```
 
-(5) 以下のコマンドを実行して、UWF フィルターを有効化します (※ コマンド実行後、OS が再起動します)。  
+(5) 以下のコマンドを実行して、UWF フィルターを有効化します (コマンド実行後、OS が再起動します)。  
 ```
 uwfmgr.exe filter enable
 shutdown /r /t 0
