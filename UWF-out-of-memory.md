@@ -26,7 +26,7 @@ UWF を有効化している環境で Windows Update を適用する方法は、
 - uwfmgr.exe filter disable を実行して OS 再起動し、手動で Windows Update を実行する。  
 - uwfmgr.exe servicing enable を実行して[UWF サービスモード](https://docs.microsoft.com/ja-jp/windows-hardware/customize/enterprise/service-uwf-protected-devices)を有効化する。  
 
-この時、上述の適用環境に該当するマシンでは Out Of Memory が発生し、更新が失敗する事象が確認されています。 
+この時、上述の環境条件を全て満たすマシンでは Out Of Memory が発生し、更新が失敗する事象が確認されています。 
 
 ---
 ### 原因
