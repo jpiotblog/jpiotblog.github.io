@@ -96,7 +96,6 @@ shutdown /r /t 0
 <img src="https://jpiotblog.github.io/images/UWF-out-of-memory/Virtual-memory-4-4.png" width=300px>  
 
 (4-5) 続行するか確認のダイアログがポップアップした場合、[はい] を選択します。
-
 (4-6) OS の再起動を促すダイアログがポップアップした場合、指示に従い再起動します。表示されなかった場合には、手動で OS を再起動します。  
 
 ***
