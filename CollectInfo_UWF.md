@@ -6,7 +6,7 @@ categories:
 tags:
 - 情報採取手順
 ---
-トラブル発生時の情報採取手順を記載します。
+UWF 機能に関連するトラブル発生時の情報採取手順を紹介します。
 <!-- more -->
 <br>
 
@@ -26,7 +26,13 @@ tags:
 ## 実行手順
 (1) 事象発生マシンに管理者アカウントでログオンします。  
 (2) CollectInfo_UWF.bat ファイルを右クリックし、[管理者として実行] を選択します。  
-(3) "実行したい番号を入力ください" メッセージに 1 を入力、リターン キーを押下し、表示に従いメニューに戻ります。  
-(4) "実行したい番号を入力ください" メッセージに q を入力、リターン キーを押下してツールを終了します。  
-(5) デスクトップ上 <YYYYMMDD 形式の年月日>_<ホスト名>_info フォルダーを圧縮し、お問い合わせいただく際にご提供ください。  
+(3) "Please enter the number you want to execute. Enter q to quit tool." メッセージに `1` を入力、リターン キーを押下し、表示に従いメニューに戻ります。  
+(4) "Please enter the number you want to execute. Enter q to quit tool." メッセージに `q` を入力、リターン キーを押下してツールを終了します。  
+(5) デスクトップ上 `<YYYYMMDD 形式の年月日>_<ホスト名>_info` フォルダーを圧縮し、お問い合わせいただく際にご提供ください。  
+
 ***
+本記事は 「[jpiotblog について](https://jpiotblog.github.io/blog/2020/01/01/about-jpiotblog/)」 の留意事項に準じます。  
+
+`変更履歴`  
+`2020/01/26 created by Mochizuki`
+`2020/08/31 modified by Mochizuki`

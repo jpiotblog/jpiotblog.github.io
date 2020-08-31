@@ -15,5 +15,8 @@ tags:
 ## テンプレートファイルについて
 これはテンプレートファイルです。このファイルはサイトから参照されません。
 
-![Template](https://jpiotblog.github.io/images/template.png "ファイルの説明")
+<img src="https://jpiotblog.github.io/images/template.png" width=400px>  
+
 ***
+`変更履歴`  
+`9999/12/31 created by ******`  

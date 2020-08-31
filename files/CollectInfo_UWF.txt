@@ -46,18 +46,18 @@ set tooltemp=c:\temp
 cls
 
 echo *******************************************************************************
-echo 情報採取ツール メニュー
-echo - 番号: 1 (UWF 関連情報採取)
+echo CollectInfo Menu
+echo - Num: 1 (OS and UWF related information collecting - Run)
 echo *******************************************************************************
 
 set INP=0
-set /p INP="実行したい番号を入力ください。終了する場合は q を入力します > "
+set /p INP="Please enter the number you want to execute. Enter q to quit tool. > "
 
 if "%INP%"=="q" exit /b
 
 echo.
-echo %INP% を実行します。
-echo 続行するには何かキーを押してください。
+echo Number %INP% is executed.
+echo Press any key to continue.
 pause > NUL
 cls
 
@@ -66,13 +66,13 @@ if "%INP%"=="1" goto oscollect
 goto startbat
 
 REM ######################################################################
-REM OS 共通情報採取
+REM UWF related information collecting
 REM ######################################################################
 
 :oscollect
 
-echo 情報採取を開始しています。
-echo エラーが表示されても処理は進みますので、そのままお待ちください。
+echo Collecting Information is started.
+echo Processing will proceed even if error messages are displayed.
 echo.
 
 REM Creating output folder
@@ -190,34 +190,34 @@ reg export HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsU
 reg export HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate registry_wupolicy.txt
 
 echo.
-echo 採取が完了しました。
-echo 何かキーを入力するとメニューに戻ります。
+echo Collecting Information is ended.
+echo Press any key to return to the menu.
 pause > NUL
 
 goto startbat
 
 REM ######################################################################
-REM エラー処理
+REM Error Handling
 REM ######################################################################
 
 :NotAdmin
 
-echo 管理者権限で実行ください。
-echo 何かキーを押すと終了します。
+echo Please run with administrative rights.
+echo Press any key to exit.
 pause > NUL
 exit /b
 
 :NotSupport
 
-echo 実行をサポートしていない OS バージョンです。
-echo 何かキーを押すと終了します。
+echo Unsupported OS version.
+echo Press any key to exit.
 pause > NUL
 exit /b
 
 :NoFile1
 
-echo %tooltemp%\ProcessMonitor\Procmon.exe ファイルが在りません。
-echo 何かキーを入力するとメニューに戻ります。
+echo The %tooltemp%\ProcessMonitor\Procmon.exe file is missing.
+echo Press any key to return to the menu.
 pause > NUL
 
 goto startbat
