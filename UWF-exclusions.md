@@ -71,8 +71,20 @@ UWF は、保護対象領域に対する書き込みをオーバーレイ領域�
 - C:\Windows\WinSXS フォルダー
 
    > Winodws 10 Enterprise 2019 LTSC では、C:\Windows\WinSXS フォルダーを除外するとシステム起動時に 「SYSTEM THREAD EXCEPTION NOT HANDLED」 で BSOD が発生するという報告がございます。C:\Windows\WinSXS フォルダー配下にはシステム起動初期にアクセスする情報が含まれておりますため、除外をお勧めいたしません。  
-***
 
+### 補足: レジストリの除外について
+レジストリの除外につきましては、HKLM レジストリ ハイブ配下の幾つかのキーおよびその配下のサブキーでのみ実行いただけます。こちらに該当しないレジストリを除外設定しようとすると、アクセス拒否のエラーと共に実行が失敗します。仮にエラーが出なかった場合でも、除外が許可された (マイクロソフト側で検証された) リストにないものは、書き込み結果の不整合により予期せぬ動作の原因になりますので、予めご留意ください。  
+
+- [UWF_RegistryFilter.AddExclusion](https://docs.microsoft.com/ja-jp/windows-hardware/customize/enterprise/uwf-registryfilteraddexclusion)
+   > 除外リストには、次のレジストリ キーの下のレジストリ サブキーのみを追加できます。
+   >- HKEY_LOCAL_MACHINE\BCD00000000
+   >- HKEY_LOCAL_MACHINE\SYSTEM
+   >- HKEY_LOCAL_MACHINE\SOFTWARE
+   >- HKEY_LOCAL_MACHINE\SAM
+   >- HKEY_LOCAL_MACHINE\SECURITY
+   >- HKEY_LOCAL_MACHINE\COMPONENTS
+
+***
 ## Windows Defender 用の除外設定について
 
 弊社より提供させていただいておりますマルウェア対策ソフトウェア (Windows Defender および System Center Endpoint Protection) につきましては、除外設定を下記サイトにて公開しております。  
