@@ -108,4 +108,5 @@ UWF は、保護対象領域に対する書き込みをオーバーレイ領域�
 ***
 `変更履歴`  
 `2020/02/19 created by Mochizuki`  
-`2020/06/16 modified by Mochizuki` 
+`2020/06/16 modified by Mochizuki`  
+`2020/09/09 modified by Mochizuki`  
