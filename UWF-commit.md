@@ -5,6 +5,7 @@ categories:
 - Unified Write Filter
 tags:
 - uwfmgr.exe
+- Commit/Commit-Delete
 ---
 UWF オーバーレイの保護領域に対して、ファイルやレジストリの変更を反映させる方法についてお纏めします。
 <!-- more -->

@@ -4,6 +4,7 @@ date: 2020-02-19 00:00:00
 categories:
 - Unified Write Filter
 tags:
+- uwfmgr.exe
 - 除外設定
 ---
 UWF の除外設定を実施するにあたり、留意いただきたい内容をお纏めいたします。
@@ -55,7 +56,7 @@ UWF は、保護対象領域に対する書き込みをオーバーレイ領域�
    >- \Windows\System32\config\SECURITY  
    >- \Windows\System32\config\SOFTWARE  
    >- \Windows\System32\config\SYSTEM  
-   >- \Users\<User Name>\NTUSER.DAT  
+   >- \Users\\\<User Name>\NTUSER.DAT  
    >- \Windows\BOOTSTAT.DAT  
    >- <System Drive>\EFI\Microsoft\Boot\BOOTSTAT.DAT  
    >- <System Drive>\Boot\BOOTSTAT.DAT  
