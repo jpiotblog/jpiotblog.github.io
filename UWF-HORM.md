@@ -45,7 +45,7 @@ HORM の有効/無効状態は uwfmgr.exe get-config コマンドの結果から
 reg query "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\uwfvol\Parameters\Dynamic" /v "HormEnabled"
 ```
 
-なお、ufgmgr ツールで HORM 有効/無効化する際のエラーメッセージからも状態を確認することが可能です。例えば、uwfmgr.exe filter enable-horm コマンドを実行時に、既に有効になっている場合以下の通りメッセージが出力します。  
+なお、uwfmgr ツールで HORM 有効/無効化する際のエラーメッセージからも状態を確認することが可能です。例えば、uwfmgr.exe filter enable-horm コマンドを実行時に、既に有効になっている場合以下の通りメッセージが出力します。  
 >Unified Write Filter already enabled - no action taken.  
 
 uwfmgr.exe filter disable-horm コマンドを実行時に、既に無効になっている場合以下の通りメッセージが出力します。  
