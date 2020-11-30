@@ -11,7 +11,7 @@ Unified Write Filter (UWF) と共に Hibernate Once/Resume Many (HORM) 機能を
 
 <!-- more -->
 <br>
-統合書き込みフィルター (UWF) と共に Hibernate Once/Resume Many (HORM) 機能を使って、事前に構成された状態でデバイスを起動することができます。HORM が有効になると、システムは常に最後に保存された休止状態ファイル (hiberfil.sys) から再開および再起動されます。 機能の有効化など具体的な手順は、下記サイトの手順に従って有効化することが可能です。  
+統合書き込みフィルター (UWF) と共に Hibernate Once/Resume Many (HORM) 機能を使用することで、事前に構成された状態でデバイスを起動することが可能になります。HORM が有効になると、システムは常に最後に保存された休止状態ファイル (hiberfil.sys) から再開および再起動されます。機能の有効化など具体的な手順は、下記サイトを参照ください。  
 
 - [Hibernate Once/Resume Many (HORM)](https://docs.microsoft.com/ja-jp/windows-hardware/customize/enterprise/hibernate-once-resume-many-horm-)
 
@@ -45,12 +45,11 @@ HORM の有効/無効状態は uwfmgr.exe get-config コマンドの結果から
 reg query "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\uwfvol\Parameters\Dynamic" /v "HormEnabled"
 ```
 
-> 参考情報:  
->ufgmgr ツールで HORM 有効/無効化する際のエラーメッセージからも状態を確認することが可能です。例えば、uwfmgr.exe filter enable-horm コマンドを実行時に、既に有効になっている場合以下の通りメッセージが出力します。  
-> >Unified Write Filter already disabled - no action taken.  
->
->uwfmgr.exe filter disable-horm コマンドを実行時に、既に無効になっている場合以下の通りメッセージが出力します。  
-> >Unified Write Filter already enabled - no action taken.  
+なお、ufgmgr ツールで HORM 有効/無効化する際のエラーメッセージからも状態を確認することが可能です。例えば、uwfmgr.exe filter enable-horm コマンドを実行時に、既に有効になっている場合以下の通りメッセージが出力します。  
+>Unified Write Filter already disabled - no action taken.  
+
+uwfmgr.exe filter disable-horm コマンドを実行時に、既に無効になっている場合以下の通りメッセージが出力します。  
+>Unified Write Filter already enabled - no action taken.  
 
 ***
 ## 特定のドライブを保護せずに HORM を有効化する方法
