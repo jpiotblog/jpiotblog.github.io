@@ -2,7 +2,7 @@
 title: UWF 機能を有効化した環境で Sysprep を用いたマスター イメージを作成する場合の留意点について
 date: 2020-07-27 17:00:00
 categories:
-- Unified Write Filter
+- Unified Write Filter (UWF)
 tags:
 - Sysprep
 ---

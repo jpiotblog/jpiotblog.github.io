@@ -2,7 +2,7 @@
 title: uwfmgr.exe ツールの Commit/Commit-Delete コマンドについて
 date: 2020-06-29 17:00:00
 categories:
-- Unified Write Filter
+- Unified Write Filter (UWF)
 tags:
 - uwfmgr.exe
 - Commit/Commit-Delete

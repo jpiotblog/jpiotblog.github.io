@@ -2,7 +2,7 @@
 title: UWF を有効化した環境でメモリ ダンプを取得する方法
 date: 2020-02-12 00:00:00
 categories:
-- Unified Write Filter
+- Unified Write Filter (UWF)
 tags:
 - メモリ ダンプの設定手順
 ---

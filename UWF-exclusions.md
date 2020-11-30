@@ -2,7 +2,7 @@
 title: UWF の除外設定について
 date: 2020-02-19 00:00:00
 categories:
-- Unified Write Filter
+- Unified Write Filter (UWF)
 tags:
 - uwfmgr.exe
 - 除外設定

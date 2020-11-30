@@ -2,7 +2,7 @@
 title: UWF 関連トラブル時の情報採取手順について
 date: 2020-01-26 00:00:00
 categories:
-- Unified Write Filter
+- Unified Write Filter (UWF)
 tags:
 - 情報採取手順
 ---

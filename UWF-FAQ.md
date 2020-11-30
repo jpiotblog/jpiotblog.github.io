@@ -1,8 +1,8 @@
 ---
-title: FAQ (Unified Write Filter)
+title: FAQ (Unified Write Filter (UWF))
 date: 2020-01-16 00:00:00
 categories:
-- Unified Write Filter
+- Unified Write Filter (UWF)
 tags:
 - FAQ
 ---

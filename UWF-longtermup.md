@@ -2,7 +2,7 @@
 title: 長期間稼働するシステムでの UWF 有効化について
 date: 2020-02-20 00:00:00
 categories:
-- Unified Write Filter
+- Unified Write Filter (UWF)
 tags:
 - uwfmgr.exe
 - オーバーレイ
