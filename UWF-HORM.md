@@ -46,10 +46,10 @@ reg query "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\uwfvol\Parameter
 ```
 
 なお、ufgmgr ツールで HORM 有効/無効化する際のエラーメッセージからも状態を確認することが可能です。例えば、uwfmgr.exe filter enable-horm コマンドを実行時に、既に有効になっている場合以下の通りメッセージが出力します。  
->Unified Write Filter already disabled - no action taken.  
+>Unified Write Filter already enabled - no action taken.  
 
 uwfmgr.exe filter disable-horm コマンドを実行時に、既に無効になっている場合以下の通りメッセージが出力します。  
->Unified Write Filter already enabled - no action taken.  
+>Unified Write Filter already disabled - no action taken.  
 
 ***
 ## 特定のドライブを保護せずに HORM を有効化する方法
