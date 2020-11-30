@@ -5,7 +5,7 @@ categories:
 - Unified Write Filter (UWF)
 tags:
 - uwfmgr.exe
-- Hibernate Once/Resume Many (HORM)
+- HORM
 ---
 Unified Write Filter (UWF) と共に Hibernate Once/Resume Many (HORM) 機能を使用する際の留意点を紹介いたします。  
 
