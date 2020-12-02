@@ -45,6 +45,29 @@ HORM の有効/無効状態は uwfmgr.exe get-config コマンドの結果から
 reg query "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\uwfvol\Parameters\Dynamic" /v "HormEnabled"
 ```
 
+WMI を使って確認することも可能です。  
+
+```powershell
+PS C:\Windows\system32> $uwf = Get-WMIObject -class UWF_Filter -namespace "root\standardcimv2\embedded"
+PS C:\Windows\system32> $uwf
+__GENUS          : 2
+__CLASS          : UWF_Filter
+__SUPERCLASS     :
+__DYNASTY        : UWF_Filter
+__RELPATH        : UWF_Filter.Id="UWF_Filter"
+__PROPERTY_COUNT : 5
+__DERIVATION     : {}
+__SERVER         : DESKTOP-H44UL9P
+__NAMESPACE      : root\standardcimv2\embedded
+__PATH           : \\DESKTOP-H44UL9P\root\standardcimv2\embedded:UWF_Filter.Id="UWF_Filter"
+CurrentEnabled   : True
+HORMEnabled      : False
+Id               : UWF_Filter
+NextEnabled      : True
+ShutdownPending  : False
+PSComputerName   : DESKTOP-H44UL9P
+```
+
 なお、uwfmgr ツールで HORM 有効/無効化する際のエラーメッセージからも状態を確認することが可能です。例えば、uwfmgr.exe filter enable-horm コマンドを実行時に、既に有効になっている場合以下の通りメッセージが出力します。  
 >Unified Write Filter already enabled - no action taken.  
 
