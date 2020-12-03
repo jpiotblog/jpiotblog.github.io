@@ -45,11 +45,12 @@ HORM の有効/無効状態は uwfmgr.exe get-config コマンドの結果から
 reg query "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\uwfvol\Parameters\Dynamic" /v "HormEnabled"
 ```
 
-WMI を使って確認することも可能です。  
+WMI を使って確認することも可能です (参考: [Unified Write Filter WMI provider reference](https://docs.microsoft.com/en-us/windows-hardware/customize/enterprise/uwf-filter))。  
 
 ```powershell
-PS C:\Windows\system32> $uwf = Get-WMIObject -class UWF_Filter -namespace "root\standardcimv2\embedded"
-PS C:\Windows\system32> $uwf
+PS C:\Windows\system32> Get-WMIObject -class UWF_Filter -namespace "root\standardcimv2\embedded"
+
+
 __GENUS          : 2
 __CLASS          : UWF_Filter
 __SUPERCLASS     :
