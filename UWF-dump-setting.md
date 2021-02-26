@@ -52,6 +52,7 @@ UWF を有効化した環境で、メモリ ダンプを取得する方法につ
    実行例:  
    ```
    uwfmgr.exe filter disable  
+   shutdown -r -t 0  
    ```
   
 1. PageFile の大きさを 物理メモリ + 300 Mbyte 以上の大きさに設定する。
