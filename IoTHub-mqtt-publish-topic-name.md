@@ -16,16 +16,16 @@ IoT Hub は [MQTT での接続をサポート](https://docs.microsoft.com/ja-jp/
 
 ここで、デバイス ID が Device01 の場合に、IoT Hub に MQTT で接続して D2C (テレメトリ) メッセージを送信するまでの一般的な流れは以下の通りです。
 
-1. デバイス ID (Device01) と IoT Hub のホスト名、対称キーの情報を元に SAS トークンを生成します。
+(1) デバイス ID (Device01) と IoT Hub のホスト名、対称キーの情報を元に SAS トークンを生成します。
 
 - SAS トークンの例: SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2F**Device01**%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802
 
-2. MQTT で接続 (CONNECT パケットの送信) を行います。
+(2) MQTT で接続 (CONNECT パケットの送信) を行います。
 
 - Usename: {your hub name}.azure-devices.net/**Device01**/?api-version=2018-06-30
 - Password: ステップ 1 で生成した SAS トークン
 
-3. D2C メッセージを送信するため Publish を行います。
+(3) D2C メッセージを送信するため Publish を行います。
 - Publish 先のトピック名: devices/**Device01**/messages/events/
 
 ## MQTT を直接利用する場合に発生する現象
