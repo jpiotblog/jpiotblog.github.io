@@ -37,33 +37,33 @@ IoT Hub に IoT Edge デバイスを接続する際の認証情報としては�
 ここでは IoT Edge デバイスのデバイス ID を "u1804serveredge01" とします。
 
 コマンド例:
-***
-    git clone https://github.com/Azure/iotedge.git  
+```console
+git clone https://github.com/Azure/iotedge.git  
     
-    mkdir certgen  
+mkdir certgen  
     
-    cp iotedge/tools/CACertificates/*.cnf certgen/  
+cp iotedge/tools/CACertificates/*.cnf certgen/  
     
-    cp iotedge/tools/CACertificates/certGen.sh certgen/  
+cp iotedge/tools/CACertificates/certGen.sh certgen/  
     
-    cd certgen  
+cd certgen  
     
-    ./certGen.sh create_root_and_intermediate  
+./certGen.sh create_root_and_intermediate  
 
-    ./certGen.sh create_edge_device_identity_certificate "u1804serveredge01"  
-***
+./certGen.sh create_edge_device_identity_certificate "u1804serveredge01"  
+```
 
 ### (3) デバイス証明書の拇印を確認する
 
 コマンド例:
-***
-    openssl x509 -in certs/iot-edge-device-identity-u1804serveredge01.cert.pem -fingerprint -noout
-***
+```console
+openssl x509 -in certs/iot-edge-device-identity-u1804serveredge01.cert.pem -fingerprint -noout
+```
 
 出力例:
-***
-    SHA1 Fingerprint=07:49:D2:99:AD:39:88:AD:1E:CA:36:BD:5B:33:B1:55:48:CA:CE:82
-***
+```console
+SHA1 Fingerprint=07:49:D2:99:AD:39:88:AD:1E:CA:36:BD:5B:33:B1:55:48:CA:CE:82
+```
 
 ### (4) IoT Hub に IoT Edge デバイスを登録する
 Azure ポータルから IoT Edge デバイスを追加します。
