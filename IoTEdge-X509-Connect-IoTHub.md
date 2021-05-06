@@ -37,31 +37,25 @@ IoT Hub に IoT Edge デバイスを接続する際の認証情報としては�
 ここでは IoT Edge デバイスのデバイス ID を "u1804serveredge01" とします。
 
 コマンド例:
-```console
+```
 git clone https://github.com/Azure/iotedge.git  
-    
 mkdir certgen  
-    
 cp iotedge/tools/CACertificates/*.cnf certgen/  
-    
 cp iotedge/tools/CACertificates/certGen.sh certgen/  
-    
 cd certgen  
-    
 ./certGen.sh create_root_and_intermediate  
-
 ./certGen.sh create_edge_device_identity_certificate "u1804serveredge01"  
 ```
 
 ### (3) デバイス証明書の拇印を確認する
 
 コマンド例:
-```console
+```
 openssl x509 -in certs/iot-edge-device-identity-u1804serveredge01.cert.pem -fingerprint -noout
 ```
 
 出力例:
-```console
+```
 SHA1 Fingerprint=07:49:D2:99:AD:39:88:AD:1E:CA:36:BD:5B:33:B1:55:48:CA:CE:82
 ```
 
@@ -80,25 +74,17 @@ Azure ポータルから IoT Edge デバイスを追加します。
 上記 "Azure IoT Edge for Linux をインストールまたはアンインストールする" の「オプション 2:X.509 証明書を使用した認証」に従って設定を行います。
 
 config.yaml の設定例:
-***
-    provisioning:
-
-        source: "manual"
-
-        authentication:
-
-            method: "x509"
-
-            iothub_hostname: "<YOUR IOT HUB NAME>.azure-devices.net"
-
-            device_id: "u1804serveredge01"
-
-            identity_cert: "file:///home/user/certgen/certs/iot-edge-device-identity-u1804serveredge01.cert.pem"
-
-            identity_pk: "file:///home/user/certgen/private/iot-edge-device-identity-u1804serveredge01.key.pem"
-
-        dynamic_reprovisioning: false
-***
+```yaml
+provisioning:
+    source: "manual"
+    authentication:
+        method: "x509"
+        iothub_hostname: "<YOUR IOT HUB NAME>.azure-devices.net"
+        device_id: "u1804serveredge01"
+        identity_cert: "file:///home/user/certgen/certs/iot-edge-device-identity-u1804serveredge01.cert.pem"
+        identity_pk: "file:///home/user/certgen/private/iot-edge-device-identity-u1804serveredge01.key.pem"
+    dynamic_reprovisioning: false
+```
 
 - iothub_hostname: IoT Hub のホスト名
 - device_id: デバイス ID, この例では "u1804serveredge01"
@@ -106,9 +92,9 @@ config.yaml の設定例:
 - identity_pk: デバイス証明書の秘密鍵のパス (フルパスの前に "file://" が必要)
 
 config.yaml の変更内容を保存したら IoT Edge デーモンを再起動します。
-***
-    sudo systemctl restart iotedge
-***
+```console
+sudo systemctl restart iotedge
+```
 
 ### 注意点
 IoT Edge デバイスは CA 証明書による複数デバイスの包括的な認証には対応していないため、自己署名証明書ではなく他の CA によって署名された証明書を使用する場合であっても、手順 (4) では「X.509 自己署名済み」を選択して証明書の拇印を個別で登録する必要があります。また、Device Provisioning Service (DPS) で IoT Edge デバイスをグループ登録することは可能ですが、この場合も IoT Hub には証明書の拇印が登録されます。
