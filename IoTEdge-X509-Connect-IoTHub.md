@@ -38,20 +38,21 @@ IoT Hub に IoT Edge デバイスを接続する際の認証情報としては�
 
 コマンド例:
 ***
-   git clone https://github.com/Azure/iotedge.git  
+    git clone https://github.com/Azure/iotedge.git  
+    
+    mkdir certgen  
+    
+    cp iotedge/tools/CACertificates/*.cnf certgen/  
+    
+    cp iotedge/tools/CACertificates/certGen.sh certgen/  
+    
+    cd certgen  
+    
+    ./certGen.sh create_root_and_intermediate  
 
-   mkdir certgen  
-
-   cp iotedge/tools/CACertificates/*.cnf certgen/  
-
-   cp iotedge/tools/CACertificates/certGen.sh certgen/  
-
-   cd certgen  
-
-   ./certGen.sh create_root_and_intermediate  
-
-   ./certGen.sh create_edge_device_identity_certificate "u1804serveredge01"  
+    ./certGen.sh create_edge_device_identity_certificate "u1804serveredge01"  
 ***
+
 ### (3) デバイス証明書の拇印を確認する
 
 コマンド例:
