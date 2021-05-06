@@ -102,6 +102,7 @@ IoT Edge デバイスは CA 証明書による複数デバイスの包括的な�
 - [X.509 CA 証明書を使用したデバイス認証](https://docs.microsoft.com/ja-jp/azure/iot-hub/iot-hub-x509ca-overview)
 - [X.509 証明書を使用して IoT Edge デバイスを作成およびプロビジョニングする](https://docs.microsoft.com/ja-jp/azure/iot-edge/how-to-auto-provision-x509-certs?view=iotedge-2020-11)
 
+***
 `変更履歴`  
 `2021/05/06 created by Nakagami`  
 
