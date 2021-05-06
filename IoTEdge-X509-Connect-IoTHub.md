@@ -69,7 +69,7 @@ Azure ポータルから IoT Edge デバイスを追加します。
 
 ![Register-IoTEdge-Device.png](https://jpiotblog.github.io/images/IoTEdge-X509-Connect-IoTHub/Register-IoTEdge-Device.png)
 
-手順 (2) で指定したデバイス ID (この例では "u1804serveredge01") および手順 (3) で確認した拇印の入力します。
+手順 (2) で指定したデバイス ID (この例では "u1804serveredge01") および手順 (3) で確認した拇印を入力します。
 
 入力例:
 
