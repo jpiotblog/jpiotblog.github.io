@@ -4,6 +4,8 @@ date: 2020-02-19 00:00:00
 categories:
 - Unified Write Filter (UWF)
 tags:
+- Microsoft Defender
+- Windows Update
 - uwfmgr.exe
 - 除外設定
 ---
@@ -17,8 +19,8 @@ UWF の除外設定を実施するにあたり、留意いただきたい内容�
 UWF は、保護対象領域に対する書き込みをオーバーレイ領域でキャッシュし、OS 再起動をトリガーにキャッシュした情報をリセットして、UWF を有効化した時点に戻します。ある製品を動作させようとしたときに、OS 再起動後に情報がリセットされると不都合が発生する場合、除外設定を追加することで期待通りに動作させることができる可能性があります。  
 この時、各製品で必要な除外設定につきましては、各製品サポートよりご案内させていただいております。下記例を参照ください。  
 
-- 質問例 1. Windows Defender に必要な除外設定を教えてほしい  
-   -> Windows Defender の製品サポートへお問い合わせください
+- 質問例 1. Microsoft Defender に必要な除外設定を教えてほしい  
+   -> Microsoft Defender の製品サポートへお問い合わせください
 
 - 質問例 2. Wi-Fi の接続情報を OS 起動後も維持したい  
    -> Windows OS の製品サポート (ネットワーク担当) へお問い合わせください
@@ -86,15 +88,15 @@ UWF は、保護対象領域に対する書き込みをオーバーレイ領域�
    > Winodws 10 Enterprise 2019 LTSC では、C:\Windows\WinSXS フォルダーを除外するとシステム起動時に 「SYSTEM THREAD EXCEPTION NOT HANDLED」 で BSOD が発生するという報告がございます。C:\Windows\WinSXS フォルダー配下にはシステム起動初期にアクセスする情報が含まれておりますため、除外をお勧めいたしません。  
 
 ***
-## Windows Defender 用の除外設定について
+## Microsoft Defender 用の除外設定について
 
-弊社より提供させていただいておりますマルウェア対策ソフトウェア (Windows Defender および System Center Endpoint Protection) につきましては、除外設定を下記サイトにて公開しております。  
+弊社より提供させていただいておりますマルウェア対策ソフトウェア (Microsoft Defender および System Center Endpoint Protection) につきましては、除外設定を下記サイトにて公開しております。  
 
 [UWF で保護されているデバイスでマルウェア対策のサポート](https://docs.microsoft.com/ja-jp/windows-hardware/customize/enterprise/uwf-antimalware-support)  
 
-また、これらの除外設定に伴い発生する問題の事例をご紹介します。比較的新しいバージョンの OS (Windows 10 バージョン 1909 以降) におきましては、2020/6/17 現在にて発生報告は確認されておりません。関連すると思われる問題が確認された場合には、Windows Defender 製品サポートへお問い合わせください。  
+また、これらの除外設定に伴い発生する問題の事例をご紹介します。比較的新しいバージョンの OS (Windows 10 バージョン 1909 以降) におきましては、2020/6/17 現在にて発生報告は確認されておりません。関連すると思われる問題が確認された場合には、Microsoft Defender 製品サポートへお問い合わせください。  
 
-- Windows Defender のレジストリを除外すると OS 起動時にハングアップする  
+- Microsoft Defender のレジストリを除外すると OS 起動時にハングアップする  
 
    > 下記レジストリ キーを除外していると、OS 起動時にハングアップして起動できない場合があります。レースコンディションによるものであり、スペックの低い端末で発生する傾向にあります。OS 側での修正は困難であるため、Wdfilter の除外解除等をご検討ください。  
    > 
@@ -106,6 +108,12 @@ UWF は、保護対象領域に対する書き込みをオーバーレイ領域�
    >- HKLM\SOFTWARE\Classes\TypeLib\{8C389764-F036-48F2-9AE2-88C260DCF43B}  
    >- HKLM\SOFTWARE\Classes\CLSID\{A2D75874-6750-4931-94C1-C99D3BC9D0C7}  
    >- HKLM\SOFTWARE\Classes\CLSID\{195B4D07-3DE2-4744-BBF2-D90121AE785B}  
+
+***
+## Windows Update 用の除外設定について
+Windows Update を適用するための除外設定につきましては、更新対象になりうるコンポーネントを全て除外する必要があるため現実的に不可能です。下記サイトの情報を参考に、[UWF サービス モード](https://docs.microsoft.com/ja-jp/windows-hardware/customize/enterprise/service-uwf-protected-devices)のご利用をご検討ください。
+
+   - [UWF で保護されているデバイスに Windows 更新プログラムを適用します。](https://docs.microsoft.com/ja-jp/windows-hardware/customize/enterprise/uwf-apply-windows-updates)
 
 ***
 `変更履歴`  
