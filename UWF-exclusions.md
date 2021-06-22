@@ -111,7 +111,7 @@ UWF は、保護対象領域に対する書き込みをオーバーレイ領域�
 
 ***
 ## Windows Update 用の除外設定について
-Windows Update を適用するための除外設定につきましては、更新対象になりうるコンポーネントを全て除外する必要があるため現実的に不可能です。下記サイトの情報を参考に、[UWF サービス モード](https://docs.microsoft.com/ja-jp/windows-hardware/customize/enterprise/service-uwf-protected-devices)のご利用をご検討ください。
+Windows Update の適用を除外設定で対応する場合、更新対象になりうるコンポーネントを全て除外する必要があるため、現実的に不可能です。下記サイトの情報を参考に、[UWF サービス モード](https://docs.microsoft.com/ja-jp/windows-hardware/customize/enterprise/service-uwf-protected-devices)のご利用をご検討ください。
 
    - [UWF で保護されているデバイスに Windows 更新プログラムを適用します。](https://docs.microsoft.com/ja-jp/windows-hardware/customize/enterprise/uwf-apply-windows-updates)
 
