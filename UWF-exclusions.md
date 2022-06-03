@@ -87,6 +87,10 @@ UWF は、保護対象領域に対する書き込みをオーバーレイ領域�
 
    > Winodws 10 Enterprise 2019 LTSC では、C:\Windows\WinSXS フォルダーを除外するとシステム起動時に 「SYSTEM THREAD EXCEPTION NOT HANDLED」 で BSOD が発生するという報告がございます。C:\Windows\WinSXS フォルダー配下にはシステム起動初期にアクセスする情報が含まれておりますため、除外をお勧めいたしません。  
 
+   下記弊社のブログに 「(1) StartComponentCleanup タスクの無効化もしくは除外設定」として Winsxs フォルダーの除外を紹介しておりますが、「A. "StartComponentCleanup" タスクの無効化」もしくは「C. 類似コマンドの定期実行」で回避ください。  
+   [(1) StartComponentCleanup タスクの無効化もしくは除外設定](https://docs.microsoft.com/ja-jp/archive/blogs/askcorejp/uwf-setting#1-startcomponentcleanup-%E3%82%BF%E3%82%B9%E3%82%AF%E3%81%AE%E7%84%A1%E5%8A%B9%E5%8C%96%E3%82%82%E3%81%97%E3%81%8F%E3%81%AF%E9%99%A4%E5%A4%96%E8%A8%AD%E5%AE%9A)  
+
+
 ***
 ## Microsoft Defender 用の除外設定について
 
@@ -120,3 +124,4 @@ Windows Update の適用を除外設定で対応する場合、更新対象に�
 `2020/02/19 created by Mochizuki`  
 `2020/06/16 modified by Mochizuki`  
 `2020/09/09 modified by Mochizuki`  
+`2022/06/03 modified by Tsuchida`  
