@@ -1,6 +1,6 @@
 ---
 title: IoT Edge が動作するハードウェアについて
-date: 2021-05-06 14:00:00
+date: 2023-08-24 00:00:00
 categories:
 - IoT Edge
 tags:
